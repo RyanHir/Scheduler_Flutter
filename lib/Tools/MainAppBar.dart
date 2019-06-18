@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
-import 'package:scheduler/Templates/GoogleAssets.dart';
-import 'package:scheduler/Tools/GetSchedule.dart';
 import 'package:scheduler/UI/Settings.dart';
 import 'package:scheduler/UI/mainLayout.dart';
 

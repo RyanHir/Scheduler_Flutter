@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
-import 'package:scheduler/Tools/Storage.dart';
 import 'package:scheduler/UI/mainLayout.dart';
 
 void main() => runApp(MyApp());
