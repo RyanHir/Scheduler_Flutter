@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/UI/Settings.dart';
-import 'package:scheduler/UI/mainLayout.dart';
+import 'package:scheduler/UI/MainLayout.dart';
 
 class AppBarSettings extends StatelessWidget {
   @override
@@ -26,7 +26,7 @@ class AppBarRefresh extends StatelessWidget {
     return new IconButton(
       icon: new Icon(Constants.refreshIcon),
       onPressed: () {
-        mainLayoutClass.refresh();
+        mainLayoutClass.mainLayoutProcessing.refresh();
       });
   }
 }
