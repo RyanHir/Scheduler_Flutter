@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Tools/Storage.dart';
+import 'package:scheduler/UI/About.dart';
 import 'package:scheduler/UI/Settings/GradePopup.dart';
 
 class Settings extends StatefulWidget {
@@ -132,6 +133,17 @@ class SettingsClass extends State<Settings> {
                                 return new GradePopup(this);
                               });
                         }),
+                    new ListTile(
+                        leading: new Icon(Icons.info),
+                        title: new Text("About"),
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return new About();
+                              });
+                        },
+                    )
                   ],
                 ),
               ),
