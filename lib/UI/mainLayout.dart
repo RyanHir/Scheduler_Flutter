@@ -29,6 +29,9 @@ class MainLayoutClass extends State<MainLayout> {
   FirebaseUser firebaseUser;
 
   refresh() async {
+    setState(() {
+      isLoading = true;
+    });
     if (Constants.debug == false) {
       if (!(await _handleSignIn())) {
         print("Not Logged In");
@@ -92,9 +95,6 @@ class MainLayoutClass extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
     if (data == null) {
-      setState(() {
-        isLoading = true;
-      });
       refresh();
     }
 

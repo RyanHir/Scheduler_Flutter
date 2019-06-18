@@ -26,9 +26,6 @@ class AppBarRefresh extends StatelessWidget {
     return new IconButton(
       icon: new Icon(Constants.refreshIcon),
       onPressed: () {
-        mainLayoutClass.setState(() {
-          mainLayoutClass.isLoading = true;
-        });
         mainLayoutClass.refresh();
       });
   }
