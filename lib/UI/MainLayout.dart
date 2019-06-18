@@ -60,15 +60,10 @@ class MainLayoutClass extends State<MainLayout> {
     );
   }
 
-  void setFireBaseUser(FirebaseUser data) {
-    setState(() => this.firebaseUser = data);
-  }
+  void setFireBaseUser(FirebaseUser data) =>
+      setState(() => this.firebaseUser = data);
 
-  void setIsLoading(bool data) {
-    setState(() => this.isLoading = data);
-  }
+  void setIsLoading(bool data) => setState(() => this.isLoading = data);
 
-  void setIsSignedIn(bool data) {
-    setState(() => this.isSignedIn = data);
-  }
+  void setIsSignedIn(bool data) => setState(() => this.isSignedIn = data);
 }

@@ -12,7 +12,7 @@ class MainLayoutProcessing {
 
   MainLayoutProcessing(this._mainLayoutClass);
 
-  refresh() async {
+  Future<void> refresh() async {
     _mainLayoutClass.setIsLoading(true);
     if (Constants.debug == false) {
       if (!(await _handleSignIn())) {
@@ -53,7 +53,7 @@ class MainLayoutProcessing {
     _mainLayoutClass.setIsSignedIn(true);
   }
 
-  _handleSignIn() async {
+  Future<bool> _handleSignIn() async {
     try {
       _mainLayoutClass.firebaseUser = await _mainLayoutClass.auth.currentUser();
       _mainLayoutClass.googleAccount =
