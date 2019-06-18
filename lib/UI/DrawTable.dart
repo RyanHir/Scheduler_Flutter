@@ -39,9 +39,8 @@ class DrawGradeTable extends StatelessWidget {
 
 class DrawSingleCohortTable extends StatelessWidget {
   final data;
-  final width;
 
-  DrawSingleCohortTable(this.data, this.width);
+  DrawSingleCohortTable(this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +104,7 @@ class _CohortView extends StatelessWidget {
           ),
         ),
         body: new Center(
-            child: DrawSingleCohortTable(send, cohortData.length)
+            child: DrawSingleCohortTable(send)
           ),
       ),
     );

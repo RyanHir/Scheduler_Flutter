@@ -4,7 +4,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Tools/MainLayoutProcessing.dart';
 import 'package:scheduler/Tools/WidgetSelector.dart';
-import 'package:scheduler/Tools/MainAppBar.dart';
+import 'package:scheduler/UI/MainLayout/MainAppSettings.dart';
+import 'package:scheduler/UI/MainLayout/MainAppRefresh.dart';
 
 class MainLayout extends StatefulWidget {
   @override

@@ -20,7 +20,7 @@ class ChooseCorrectWidget extends StatelessWidget {
       switch (tab) {
         case "personal":
           return new Container(
-              padding: EdgeInsets.all(0), child: DrawSingleCohortTable(data["schedule"], data["schedule"]));
+              padding: EdgeInsets.all(0), child: DrawSingleCohortTable(data["schedule"]));
         case "grade":
           return new Container(
               padding: EdgeInsets.all(0), child: DrawGradeTable(data["table"]));
