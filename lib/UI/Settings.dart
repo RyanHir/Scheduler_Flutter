@@ -130,7 +130,7 @@ class SettingsClass extends State<Settings> {
                 ),
               ),
       ),
-      debugShowCheckedModeBanner: Constants.debug,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
