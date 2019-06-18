@@ -12,7 +12,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppClass extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return new MainLayout();
@@ -20,12 +19,11 @@ class _MyAppClass extends State<MyApp> {
 
   Widget loading() {
     return new MaterialApp(
-      theme: new ThemeData(brightness: Constants.brightness),
-      home: new Scaffold(
-        body: new Center(
-          child: new CircularProgressIndicator(),
-        ),
-      )
-    );
+        theme: new ThemeData(brightness: Constants.brightness),
+        home: new Scaffold(
+          body: new Center(
+            child: new CircularProgressIndicator(),
+          ),
+        ));
   }
 }

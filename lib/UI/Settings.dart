@@ -68,7 +68,6 @@ class SettingsClass extends State<Settings> {
     });
   }
 
-
   _loadSettings() async {
     try {
       final tempUser = await _googleSignIn.signInSilently();
@@ -134,15 +133,15 @@ class SettingsClass extends State<Settings> {
                               });
                         }),
                     new ListTile(
-                        leading: new Icon(Icons.info),
-                        title: new Text("About"),
-                        onTap: () {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return new About();
-                              });
-                        },
+                      leading: new Icon(Icons.info),
+                      title: new Text("About"),
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return new About();
+                            });
+                      },
                     )
                   ],
                 ),
