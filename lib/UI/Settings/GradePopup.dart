@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Tools/Storage.dart';
@@ -20,28 +19,32 @@ class _GradePopupClass extends State<GradePopup> {
 
   _GradePopupClass(this.settingsMenu);
 
+  Widget dropdown(BuildContext context) {
+    var embeddedGrade = settingsMenu.grade;
+    return new DropdownButton<int>(
+        items: Constants.grades.map((int value) {
+          return new DropdownMenuItem<int>(
+            value: value,
+            child: new Text(value.toString()),
+          );
+        }).toList(),
+        onChanged: (val) {
+          Storage.save("grade", val);
+
+          setState(() {
+            embeddedGrade = val;
+          });
+
+          settingsMenu.setGrade(val);
+        },
+        value: embeddedGrade);
+  }
+
   @override
   Widget build(BuildContext context) {
-    var embeddedGrade = settingsMenu.grade;
     return AlertDialog(
       title: new Text("Grade"),
-      content: new DropdownButton<int>(
-          items: Constants.grades.map((int value) {
-            return new DropdownMenuItem<int>(
-              value: value,
-              child: new Text(value.toString()),
-            );
-          }).toList(),
-          onChanged: (val) {
-            Storage.save("grade", val);
-            
-            setState(() {
-              embeddedGrade = val;
-            });
-
-            settingsMenu.setGrade(val);
-          },
-          value: embeddedGrade),
+      content: dropdown(context),
       actions: <Widget>[
         new FlatButton(
           child: new Text("Save And Exit"),
