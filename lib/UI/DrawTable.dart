@@ -54,10 +54,7 @@ class DrawSingleCohortTable extends StatelessWidget {
 
     List<dynamic> _newData = [];
     for (var x in data) {
-      if (x == null)
-        return new Center(
-          child: Text("Please Reload Data")
-        );
+      if (x == null) return new Center(child: Text("Please Reload Data"));
       for (var y in x) {
         _newData.insert(_newData.length, y);
       }
@@ -65,8 +62,7 @@ class DrawSingleCohortTable extends StatelessWidget {
 
     return new Container(
       constraints: BoxConstraints.expand(),
-      child: 
-      GridView.builder(
+      child: GridView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
@@ -103,9 +99,7 @@ class _CohortView extends StatelessWidget {
             },
           ),
         ),
-        body: new Center(
-            child: DrawSingleCohortTable(send)
-          ),
+        body: new Center(child: DrawSingleCohortTable(send)),
       ),
     );
   }
