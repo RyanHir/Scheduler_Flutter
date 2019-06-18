@@ -34,12 +34,12 @@ class _GradePopupClass extends State<GradePopup> {
           }).toList(),
           onChanged: (val) {
             Storage.save("grade", val);
+            
             setState(() {
               embeddedGrade = val;
             });
-            settingsMenu.setState(() {
-              settingsMenu.grade = val;
-            });
+
+            settingsMenu.setGrade(val);
           },
           value: embeddedGrade),
       actions: <Widget>[

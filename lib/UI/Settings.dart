@@ -21,6 +21,12 @@ class SettingsClass extends State<Settings> {
   bool _loaded = false;
   int grade = 10;
 
+  void setGrade(int val) {
+    setState(() {
+      this.grade = val;
+    });
+  }
+
   static _updateGoogleDisplay(String input) {
     return "Signed In As: " + input;
   }
