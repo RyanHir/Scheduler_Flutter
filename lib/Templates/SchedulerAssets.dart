@@ -1,3 +1,5 @@
+import 'package:scheduler/Constants.dart';
+
 class SchedulerAssets {
   List<List<ModInfo>> gradeSchedule = new List<List<ModInfo>>();
   IndividualSchedule schedule;
@@ -37,7 +39,7 @@ class IndividualInfo {
   IndividualInfo.fromJson(Map<String, dynamic> input) {
     List<String> keys = input.keys.toList();
 
-    keys.removeWhere((item) => item == "" || item =="id");
+    keys.removeWhere((item) => Constants.dataToIgnore.contains(item));
 
     for (var x in keys) {
       info[x] = input[x];
