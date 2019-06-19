@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/UI/Tabs/InfoTab/DrawInfo.dart';
-import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeList.dart';
-import 'package:scheduler/UI/Tabs/PersonalTab/DrawTable.dart';
+import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
+import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
+import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
 
 class ChooseCorrectWidget extends StatelessWidget {
   final data;

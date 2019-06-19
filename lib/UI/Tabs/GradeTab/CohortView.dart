@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
-import 'package:scheduler/UI/Tabs/GradeTab/DrawCohortTable.dart';
+import 'package:scheduler/UI/Tabs/GradeTab/CohortTable.dart';
 
 class CohortView extends StatelessWidget {
   final cohortData;
