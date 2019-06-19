@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/Constants.dart';
 
 class About extends StatelessWidget {
   @override
