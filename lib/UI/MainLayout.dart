@@ -32,12 +32,8 @@ class MainLayoutClass extends State<MainLayout> {
       mainLayoutProcessing.refresh();
     }
 
-    return new MaterialApp(
-      theme: new ThemeData(brightness: Constants.brightness),
-      home: new DefaultTabController(
-        length: 3,
-        child: new Scaffold(
-          appBar: new AppBar(
+    Widget appBar() {
+      return new AppBar(
             title: new Text(Constants.title),
             actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
             bottom: TabBar(
@@ -47,14 +43,26 @@ class MainLayoutClass extends State<MainLayout> {
                 Tab(text: "Your Info"),
               ],
             ),
-          ),
-          body: new TabBarView(
+          );
+    }
+
+    Widget appBarTabs() {
+      return new TabBarView(
             children: [
               ChooseCorrectWidget(data, isLoading, isSignedIn, "personal"),
               ChooseCorrectWidget(data, isLoading, isSignedIn, "grade"),
               ChooseCorrectWidget(data, isLoading, isSignedIn, "info")
             ],
-          ),
+          );
+    }
+
+    return new MaterialApp(
+      theme: new ThemeData(brightness: Constants.brightness),
+      home: new DefaultTabController(
+        length: 3,
+        child: new Scaffold(
+          appBar: appBar(),
+          body: appBarTabs(),
         ),
       ),
       debugShowCheckedModeBanner: false,
