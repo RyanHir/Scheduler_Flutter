@@ -7,13 +7,11 @@ class DrawPersonalTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    try {
-      if (data["length"] == "0") {
-        return new Center(
-          child: Text("No Schedule, Please Go to Grade Schedule"),
-        );
-      }
-    } catch (e) {}
+    if (data["length"] == "0") {
+      return new Center(
+        child: Text("No Schedule, Please Go to Grade Schedule"),
+      );
+    }
 
     List<dynamic> _newData = [];
     for (var x in data) {
