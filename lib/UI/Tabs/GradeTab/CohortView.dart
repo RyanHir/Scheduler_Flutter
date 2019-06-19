@@ -22,9 +22,11 @@ class CohortView extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
+          title: Text(send[1][0]["text"].toString()),
         ),
         body: new Center(child: DrawCohortTable(send)),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -7,7 +7,6 @@ class DrawCohortTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     List<dynamic> _newData = [];
     for (var x in data) {
       if (x == null) return new Center(child: Text("Please Reload Data"));
@@ -16,11 +15,10 @@ class DrawCohortTable extends StatelessWidget {
       }
     }
 
-    return new Container(
-      constraints: BoxConstraints.expand(),
+    return new Center(
       child: GridView.builder(
         shrinkWrap: true,
-        scrollDirection: Axis.vertical,
+        scrollDirection: Axis.horizontal,
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: data[0].length),
         itemCount: _newData.length,
