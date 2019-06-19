@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Constants.dart';
 
 class About extends StatelessWidget {
   @override
@@ -11,6 +12,14 @@ class About extends StatelessWidget {
     return AlertDialog(
       title: new Text("About"),
       content: new Text(text),
+      actions: <Widget>[
+        FlatButton(
+          child: Text("Exit"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        )
+      ],
     );
   }
 }
