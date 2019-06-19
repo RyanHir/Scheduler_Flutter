@@ -3,12 +3,12 @@ import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
 import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
 import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
 
-class ChooseCorrectWidget extends StatelessWidget {
+class WidgetSelector extends StatelessWidget {
   final data;
   final isLoading;
   final isLoggedIn;
   final tab;
-  ChooseCorrectWidget(this.data, this.isLoading, this.isLoggedIn, this.tab);
+  WidgetSelector(this.data, this.isLoading, this.isLoggedIn, this.tab);
 
   Widget build(BuildContext context) {
     if (isLoading == false && isLoggedIn == false) {
