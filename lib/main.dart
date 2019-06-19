@@ -16,14 +16,4 @@ class _MyAppClass extends State<MyApp> {
   Widget build(BuildContext context) {
     return new MainLayout();
   }
-
-  Widget loading() {
-    return new MaterialApp(
-        theme: new ThemeData(brightness: Constants.brightness),
-        home: new Scaffold(
-          body: new Center(
-            child: new CircularProgressIndicator(),
-          ),
-        ));
-  }
 }
