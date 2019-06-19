@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/UI/MainLayout.dart';
 import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
 import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
 import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
 
 class WidgetSelector extends StatelessWidget {
-  final Map<String, dynamic> data;
-  final bool isLoading;
-  final bool isLoggedIn;
   final String tab;
-  WidgetSelector(this.data, this.isLoading, this.isLoggedIn, this.tab);
+  final MainLayoutClass mainLayout;
+  WidgetSelector(this.mainLayout, this.tab);
 
   Widget build(BuildContext context) {
-    if (isLoading == false && isLoggedIn == false) {
+    if (mainLayout.isLoading == false && mainLayout.isSignedIn == false) {
       return new Center(child:Text("Please Sign In Through The Settings"));
-    } else if (data == null) {
+    } else if (mainLayout.data == null) {
       return new Center(child: CircularProgressIndicator());
-    } else if (isLoading == true) {
+    } else if (mainLayout.isLoading == true) {
       return new Center(child: CircularProgressIndicator());
     } else {
       switch (tab) {
         case "personal":
           return new Container(
-              padding: EdgeInsets.all(0), child: DrawPersonalTable(data["schedule"]));
+              padding: EdgeInsets.all(0), child: DrawPersonalTable(mainLayout.data["schedule"]));
         case "grade":
           return new Container(
-              padding: EdgeInsets.all(0), child: DrawGradeList(data["table"]));
+              padding: EdgeInsets.all(0), child: DrawGradeList(mainLayout.data["table"]));
         case "info":
           return new Container(
-              padding: EdgeInsets.all(0), child: ShowInfo(data["info"]));
+              padding: EdgeInsets.all(0), child: ShowInfo(mainLayout.data["info"]));
         
       }
     }

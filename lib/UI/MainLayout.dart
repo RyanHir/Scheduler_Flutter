@@ -49,9 +49,9 @@ class MainLayoutClass extends State<MainLayout> {
     Widget appBarTabs() {
       return new TabBarView(
             children: [
-              WidgetSelector(data, isLoading, isSignedIn, "personal"),
-              WidgetSelector(data, isLoading, isSignedIn, "grade"),
-              WidgetSelector(data, isLoading, isSignedIn, "info")
+              WidgetSelector(this, "personal"),
+              WidgetSelector(this, "grade"),
+              WidgetSelector(this, "info")
             ],
           );
     }
