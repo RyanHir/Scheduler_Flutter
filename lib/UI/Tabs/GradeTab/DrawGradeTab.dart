@@ -8,18 +8,18 @@ class DrawGradeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> data = predata;
+    List<dynamic> data = predata.toList();
     List<dynamic> header;
 
     data.removeWhere((item) => item.length == 0);
 
     for (var x in data) {
-      if (x[0]["type"].toString() == "KEY".toString()) {
-        header = x;
+      if (x[0]["type"].toString() == "KEY") {
+        header = x.toList();
       }
     }
 
-    data.removeWhere((item) => item[0]["text"].toString() == "");
+    data.removeWhere((item) => item[0]["type"].toString() == "KEY");
     return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, i) {
