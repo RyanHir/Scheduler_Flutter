@@ -7,7 +7,6 @@ class AppBarSettings extends StatelessWidget {
     return new IconButton(
         icon: new Icon(Icons.settings),
         onPressed: () {
-          print("opening settings");
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Settings()));
         });
