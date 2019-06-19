@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/UI/GradeTab/CohortView.dart';
+import 'package:scheduler/UI/Tabs/GradeTab/CohortView.dart';
 
 class DrawGradeList extends StatelessWidget {
   final List<dynamic> predata;

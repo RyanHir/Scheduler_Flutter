@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/UI/InfoTab/DrawInfo.dart';
-import 'package:scheduler/UI/DrawTable.dart';
-import 'package:scheduler/UI/GradeTab/DrawGradeList.dart';
+import 'package:scheduler/UI/Tabs/InfoTab/DrawInfo.dart';
+import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeList.dart';
+import 'package:scheduler/UI/Tabs/PersonalTab/DrawTable.dart';
 
 class ChooseCorrectWidget extends StatelessWidget {
   final data;
@@ -21,7 +21,7 @@ class ChooseCorrectWidget extends StatelessWidget {
       switch (tab) {
         case "personal":
           return new Container(
-              padding: EdgeInsets.all(0), child: DrawTable(data["schedule"]));
+              padding: EdgeInsets.all(0), child: DrawPersonalTable(data["schedule"]));
         case "grade":
           return new Container(
               padding: EdgeInsets.all(0), child: DrawGradeList(data["table"]));

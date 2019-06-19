@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
-import 'package:scheduler/UI/DrawTable.dart';
+import 'package:scheduler/UI/Tabs/GradeTab/DrawCohortTable.dart';
 
 class CohortView extends StatelessWidget {
   final cohortData;
@@ -23,7 +23,7 @@ class CohortView extends StatelessWidget {
             },
           ),
         ),
-        body: new Center(child: DrawTable(send)),
+        body: new Center(child: DrawCohortTable(send)),
       ),
     );
   }

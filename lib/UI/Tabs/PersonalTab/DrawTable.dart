@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class DrawTable extends StatelessWidget {
+class DrawPersonalTable extends StatelessWidget {
   final data;
 
-  DrawTable(this.data);
+  DrawPersonalTable(this.data);
 
   @override
   Widget build(BuildContext context) {
