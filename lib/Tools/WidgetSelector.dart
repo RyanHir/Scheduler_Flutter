@@ -4,10 +4,10 @@ import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
 import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
 
 class WidgetSelector extends StatelessWidget {
-  final data;
-  final isLoading;
-  final isLoggedIn;
-  final tab;
+  final Map<String, dynamic> data;
+  final bool isLoading;
+  final bool isLoggedIn;
+  final String tab;
   WidgetSelector(this.data, this.isLoading, this.isLoggedIn, this.tab);
 
   Widget build(BuildContext context) {
