@@ -6,6 +6,8 @@ class SchedulerAssets {
   IndividualInfo info;
   int grade;
 
+  //TODO: Implement Into Application, Instead of using Map
+
   SchedulerAssets.fromJson(Map<String, dynamic> input) {
     for (var x in input["table"]) {
       List<ModInfo> cohort = new List<ModInfo>();
