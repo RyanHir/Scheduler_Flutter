@@ -21,7 +21,6 @@ class Google {
 
     final FirebaseUser user = await _auth.signInWithCredential(credential);
 
-    print(user.displayName);
     return GoogleAssets(googleAuth, firebaseUser);
   }
 

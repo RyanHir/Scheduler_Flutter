@@ -16,7 +16,6 @@ class MainLayoutProcessing {
     _mainLayoutClass.setIsLoading(true);
     if (Constants.debug == false) {
       if (!(await _handleSignIn())) {
-        print("Not Logged In");
         _mainLayoutClass.setIsLoading(false);
         _mainLayoutClass.setIsSignedIn(false);
       }
@@ -39,9 +38,6 @@ class MainLayoutProcessing {
     } else {
       final jsonData = await rootBundle.loadString("assets/example.json");
       _mainLayoutClass.data = json.decode(jsonData);
-      print((new SchedulerAssets.fromJson(_mainLayoutClass.data))
-          .gradeSchedule[1][1]
-          .text);
     }
 
     if (_mainLayoutClass.data["failed"] != null) {

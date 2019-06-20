@@ -4,13 +4,11 @@ class Storage {
   static read(key) async {
     final prefs = await SharedPreferences.getInstance();
     final value = prefs.getInt(key) ?? 0;
-    print('read: $value');
     return value;
   }
 
   static save(key, value) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setInt(key, value);
-    print('saved $value');
   }
 }

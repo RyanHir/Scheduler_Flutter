@@ -34,7 +34,6 @@ class SettingsClass extends State<Settings> {
 
   _handleSignIn() async {
     if (googleAccount != null && firebaseUser != null) {
-      print(_updateGoogleDisplay(firebaseUser.displayName));
       return;
     }
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
@@ -54,7 +53,6 @@ class SettingsClass extends State<Settings> {
       _youAre = _updateGoogleDisplay(firebaseUser.displayName);
     });
 
-    print(user.displayName);
   }
 
   _handleSignOut() async {

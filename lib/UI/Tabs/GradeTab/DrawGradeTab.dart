@@ -27,7 +27,6 @@ class DrawGradeList extends StatelessWidget {
           trailing: Icon(Icons.arrow_right),
           title: new Text(data[i][0]["text"]),
           onTap: () {
-            print(header);
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => CohortView(data[i], header)));
           },
