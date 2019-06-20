@@ -16,10 +16,10 @@ class DrawCohortTable extends StatelessWidget {
         itemCount: newData[0].length,
         itemBuilder: (BuildContext context, int i) {
           return Card(
-            elevation: 8,
+            elevation: 4,
             margin: EdgeInsets.all(8.0),
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
