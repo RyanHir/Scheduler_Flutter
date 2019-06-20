@@ -24,7 +24,7 @@ class DrawGradeList extends StatelessWidget {
       itemCount: data.length,
       itemBuilder: (context, i) {
         return new ListTile(
-          trailing: Icon(Icons.arrow_right),
+          trailing: Icon(Icons.arrow_forward),
           title: new Text(data[i][0]["text"]),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
