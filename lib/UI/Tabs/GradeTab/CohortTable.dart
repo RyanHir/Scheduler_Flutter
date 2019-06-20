@@ -7,7 +7,7 @@ class DrawCohortTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> newData = [data[0].toList(),data[1].toList()];
+    List<dynamic> newData = [data[0].toList(), data[1].toList()];
 
     newData.forEach((obj) => obj.removeWhere(
         (item) => item["type"] == "QUERY" || item["type"] == "KEY"));
