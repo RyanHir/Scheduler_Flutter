@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
+import 'package:scheduler/Strings.dart';
 import 'package:scheduler/Tools/Storage.dart';
 import 'package:scheduler/UI/Settings/About.dart';
 import 'package:scheduler/UI/Settings/GradePopup.dart';
@@ -29,7 +30,7 @@ class SettingsClass extends State<Settings> {
   }
 
   static _updateGoogleDisplay(String input) {
-    return "Signed In As: " + input;
+    return Strings.signedInAs + input;
   }
 
   _handleSignIn() async {
@@ -111,7 +112,7 @@ class SettingsClass extends State<Settings> {
                   children: <Widget>[
                     new ListTile(
                       leading: new Icon(Constants.accountIcon),
-                      title: new Text(_youAre == null ? "Sign In" : _youAre),
+                      title: new Text(_youAre == null ? Strings.pleaseSignInMin : _youAre),
                       onTap: () {
                         if (this.googleAccount == null) {
                           _handleSignIn();
@@ -122,7 +123,7 @@ class SettingsClass extends State<Settings> {
                     ),
                     new ListTile(
                         leading: new Icon(Icons.grade),
-                        title: new Text("Grade: " + grade.toString()),
+                        title: new Text(Strings.currentGrade + grade.toString()),
                         onTap: () {
                           showDialog(
                               context: context,

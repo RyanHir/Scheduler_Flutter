@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Constants.dart';
+import 'package:scheduler/Strings.dart';
 import 'package:scheduler/Tools/Storage.dart';
 import 'package:scheduler/UI/Settings.dart';
 
@@ -43,11 +44,11 @@ class _GradePopupClass extends State<GradePopup> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: new Text("Grade"),
+      title: new Text(Strings.grade),
       content: dropdown(context),
       actions: <Widget>[
         new FlatButton(
-          child: new Text("Save And Exit"),
+          child: new Text(Strings.saveAndExit),
           onPressed: () {
             Navigator.of(context).pop();
           },

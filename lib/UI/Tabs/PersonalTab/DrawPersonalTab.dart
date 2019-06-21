@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Strings.dart';
 
 class DrawPersonalTable extends StatelessWidget {
   final data;
@@ -9,13 +10,13 @@ class DrawPersonalTable extends StatelessWidget {
   Widget build(BuildContext context) {
     if (data["length"] == "0") {
       return new Center(
-        child: Text("No Schedule, Please Go to Grade Schedule"),
+        child: Text(Strings.noScheduleError),
       );
     }
 
     List<dynamic> _newData = [];
     for (var x in data) {
-      if (x == null) return new Center(child: Text("Please Reload Data"));
+      if (x == null) return new Center(child: Text(Strings.pleaseReload));
       for (var y in x) {
         _newData.insert(_newData.length, y);
       }

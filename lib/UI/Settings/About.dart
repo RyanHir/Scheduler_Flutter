@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Strings.dart';
 
 class About extends StatelessWidget {
   @override
@@ -9,11 +10,11 @@ class About extends StatelessWidget {
     API build by 
     """;
     return AlertDialog(
-      title: new Text("About"),
+      title: new Text(Strings.about),
       content: new Text(text),
       actions: <Widget>[
         FlatButton(
-          child: Text("Exit"),
+          child: Text(Strings.exit),
           onPressed: () {
             Navigator.pop(context);
           },

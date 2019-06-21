@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Strings.dart';
 import 'package:scheduler/UI/MainLayout.dart';
 import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
 import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
@@ -11,7 +12,7 @@ class WidgetSelector extends StatelessWidget {
 
   Widget build(BuildContext context) {
     if (mainLayout.isLoading == false && mainLayout.isSignedIn == false) {
-      return new Center(child:Text("Please Sign In Through The Settings"));
+      return new Center(child:Text(Strings.pleaseSignIn));
     } else if (mainLayout.data == null) {
       return new Center(child: CircularProgressIndicator());
     } else if (mainLayout.isLoading == true) {
