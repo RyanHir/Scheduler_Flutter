@@ -6,7 +6,10 @@ class Constants {
   static const String modInfoTitle = "Mod Info";
   static const String endpoint = "https://script.google.com/macros/s/AKfycbx6UM43jEELsS8VNJCQASpH60veCwJ2fESByIOgFqG8itpvK60v/exec";
 
-  static const Brightness brightness = Brightness.light;
+  static final ThemeData theme = ThemeData(
+    brightness: Brightness.light,
+    accentColor: Colors.blueAccent,
+  );
 
   static const bool debug = true;
 

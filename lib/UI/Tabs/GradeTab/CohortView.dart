@@ -13,7 +13,7 @@ class CohortView extends StatelessWidget {
     List<dynamic> send = [timeData, cohortData];
 
     return new MaterialApp(
-      theme: new ThemeData(brightness: Constants.brightness),
+      theme: Constants.theme,
       home: new Scaffold(
         appBar: new AppBar(
           leading: new IconButton(

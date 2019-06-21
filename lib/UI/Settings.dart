@@ -92,7 +92,7 @@ class SettingsClass extends State<Settings> {
       _loadSettings();
     }
     return new MaterialApp(
-      theme: new ThemeData(brightness: Constants.brightness),
+      theme: Constants.theme,
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text(Constants.settingsTitle),
