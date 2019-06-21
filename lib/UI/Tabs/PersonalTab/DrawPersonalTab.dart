@@ -22,20 +22,29 @@ class DrawPersonalTable extends StatelessWidget {
       }
     }
 
-    return new Container(
-      constraints: BoxConstraints.expand(),
-      child: GridView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: data[0].length),
-        itemCount: _newData.length,
-        itemBuilder: (BuildContext context, int index) {
-          return new GridTile(
-            child: Text(_newData[index]["text"].toString()),
+    return new ListView.builder(
+        itemCount: _newData[0].length,
+        itemBuilder: (BuildContext context, int i) {
+          return Card(
+            elevation: 4,
+            margin: EdgeInsets.all(8.0),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            child: Container(
+                padding: EdgeInsets.all(16),
+                child: Column(children: [
+                  Text(
+                    _newData[0][i]["text"],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  Text(
+                    _newData[1][i]["text"],
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 16),
+                  )
+                ])),
           );
-        },
-      ),
-    );
+        });
   }
 }
