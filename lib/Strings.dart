@@ -1,6 +1,6 @@
 class Strings {
   //User Requests for action
-  static const pleaseSignIn = "Please Sign In Through The Settings";
+  static const pleaseSignIn = "Please Sign In Through The Settings Menu";
   static const pleaseSignInMin = "Sign In";
   static const pleaseReload = "Please Reload";
   static const exit = "Exit";
