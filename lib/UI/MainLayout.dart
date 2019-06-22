@@ -34,30 +34,37 @@ class MainLayoutClass extends State<MainLayout> {
 
     Widget appBar() {
       return new AppBar(
-            title: new Text(Constants.title),
-            actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-            bottom: TabBar(
-              tabs: [
-                Tab(text: "Your Schedule"),
-                Tab(text: "Grade Schedule"),
-                Tab(text: "Your Info"),
-              ],
-            ),
-          );
+        title: new Text(Constants.title),
+        actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
+        bottom: TabBar(
+          tabs: [
+            Tab(text: "Your Schedule"),
+            Tab(text: "Grade Schedule"),
+            Tab(text: "Your Info"),
+          ],
+        ),
+      );
     }
 
     Widget appBarTabs() {
       return new TabBarView(
-            children: [
-              WidgetSelector(this, "personal"),
-              WidgetSelector(this, "grade"),
-              WidgetSelector(this, "info")
-            ],
-          );
+        children: [
+          WidgetSelector(this, "personal"),
+          WidgetSelector(this, "grade"),
+          WidgetSelector(this, "info")
+        ],
+      );
     }
 
     return new MaterialApp(
-      theme: Constants.theme,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.purple,
+        primaryTextTheme: TextTheme(
+
+        ),
+        fontFamily: 'Montserrat',
+      ),
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
