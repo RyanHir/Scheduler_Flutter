@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Constants.dart';
 import 'package:scheduler/UI/Tabs/GradeTab/CohortView.dart';
 
 class DrawGradeList extends StatelessWidget {
@@ -24,7 +25,7 @@ class DrawGradeList extends StatelessWidget {
       itemCount: data.length,
       itemBuilder: (context, i) {
         return new ListTile(
-          trailing: Icon(Icons.arrow_forward),
+          trailing: Icon(Constants.fowardIcon),
           title: new Text(data[i][0]["text"]),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(

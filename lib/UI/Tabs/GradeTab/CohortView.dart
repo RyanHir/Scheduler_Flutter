@@ -17,7 +17,7 @@ class CohortView extends StatelessWidget {
       home: new Scaffold(
         appBar: new AppBar(
           leading: new IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: Icon(Constants.backIcon),
             onPressed: () {
               Navigator.of(context).pop();
             },

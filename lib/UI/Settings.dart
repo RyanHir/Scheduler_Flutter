@@ -122,7 +122,7 @@ class SettingsClass extends State<Settings> {
                       },
                     ),
                     new ListTile(
-                        leading: new Icon(Icons.grade),
+                        leading: new Icon(Constants.gradeIcon),
                         title: new Text(Strings.currentGrade + grade.toString()),
                         onTap: () {
                           showDialog(
@@ -132,7 +132,7 @@ class SettingsClass extends State<Settings> {
                               });
                         }),
                     new ListTile(
-                      leading: new Icon(Icons.info),
+                      leading: new Icon(Constants.infoIcon),
                       title: new Text("About"),
                       onTap: () {
                         showDialog(
