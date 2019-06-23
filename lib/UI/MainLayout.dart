@@ -60,9 +60,6 @@ class MainLayoutClass extends State<MainLayout> {
       theme: ThemeData(
         brightness: Brightness.light,
         primarySwatch: Colors.purple,
-        primaryTextTheme: TextTheme(
-
-        ),
         fontFamily: 'Montserrat',
       ),
       home: new DefaultTabController(
