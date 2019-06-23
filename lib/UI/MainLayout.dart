@@ -57,11 +57,7 @@ class MainLayoutClass extends State<MainLayout> {
     }
 
     return new MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.purple,
-        fontFamily: 'Montserrat',
-      ),
+      theme: Constants.theme,
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(

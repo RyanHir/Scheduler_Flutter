@@ -7,7 +7,8 @@ class Constants {
 
   static final ThemeData theme = ThemeData(
     brightness: Brightness.light,
-    accentColor: Colors.blueAccent,
+    primarySwatch: Colors.purple,
+    fontFamily: 'Montserrat',
   );
 
   static const bool debug = true;
