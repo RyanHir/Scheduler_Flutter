@@ -8,20 +8,19 @@ class Google {
 
   GoogleSignInAuthentication googleAccount;
   FirebaseUser firebaseUser;
-  
+
   Future<GoogleAssets> handleSignIn() async {
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+    googleAccount = await googleUser.authentication;
 
     final AuthCredential credential = GoogleAuthProvider.getCredential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
+      accessToken: googleAccount.accessToken,
+      idToken: googleAccount.idToken,
     );
 
-    final FirebaseUser user = await _auth.signInWithCredential(credential);
+    firebaseUser = await _auth.signInWithCredential(credential);
 
-    return GoogleAssets(googleAuth, firebaseUser);
+    return GoogleAssets(googleAccount, firebaseUser);
   }
 
   Future<void> handleSignOut() async {
