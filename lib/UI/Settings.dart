@@ -133,7 +133,7 @@ class SettingsClass extends State<Settings> {
                         }),
                     new ListTile(
                       leading: new Icon(Constants.infoIcon),
-                      title: new Text("About"),
+                      title: new Text(Strings.about),
                       onTap: () {
                         showDialog(
                             context: context,
