@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Strings.dart';
 
 class DrawPersonalTable extends StatelessWidget {
@@ -26,7 +27,7 @@ class DrawPersonalTable extends StatelessWidget {
         itemCount: _newData[0].length,
         itemBuilder: (BuildContext context, int i) {
           return Card(
-            elevation: 4,
+            elevation: Constants.cardElevation,
             margin: EdgeInsets.all(8.0),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

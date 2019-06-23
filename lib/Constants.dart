@@ -13,6 +13,8 @@ class Constants {
 
   static const bool debug = true;
 
+  static const double cardElevation = 4;
+
   static const IconData refreshIcon = Icons.refresh;
   static const IconData accountIcon = Icons.account_circle;
   static const IconData backIcon = Icons.arrow_back;
