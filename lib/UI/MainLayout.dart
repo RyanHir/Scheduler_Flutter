@@ -32,7 +32,7 @@ class MainLayoutClass extends State<MainLayout> {
       mainLayoutProcessing.refresh();
     }
 
-    Widget appBar() {
+    Widget _appBar() {
       return new AppBar(
         title: new Text(Constants.title),
         actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
@@ -46,7 +46,7 @@ class MainLayoutClass extends State<MainLayout> {
       );
     }
 
-    Widget appBarTabs() {
+    Widget _appBarTabs() {
       return new TabBarView(
         children: [
           WidgetSelector(this, "personal"),
@@ -61,8 +61,8 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-          appBar: appBar(),
-          body: appBarTabs(),
+          appBar: _appBar(),
+          body: _appBarTabs(),
         ),
       ),
       debugShowCheckedModeBanner: false,
