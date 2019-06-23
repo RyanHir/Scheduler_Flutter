@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:scheduler/Constants.dart';
-import 'package:scheduler/Templates/SchedulerAssets.dart';
 import 'package:scheduler/Tools/Storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:scheduler/UI/MainLayout.dart';
@@ -47,22 +46,5 @@ class MainLayoutProcessing {
 
     _mainLayoutClass.setIsLoading(false);
     _mainLayoutClass.setIsSignedIn(true);
-  }
-
-  Future<bool> _handleSignIn() async {
-    try {
-      _mainLayoutClass.firebaseUser = await _mainLayoutClass.auth.currentUser();
-      _mainLayoutClass.googleAccount =
-          await (await _mainLayoutClass.googleSignIn.signInSilently())
-              .authentication;
-    } catch (e) {
-      _mainLayoutClass.firebaseUser = null;
-      _mainLayoutClass.googleAccount = null;
-    }
-    if (_mainLayoutClass.firebaseUser != null) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
