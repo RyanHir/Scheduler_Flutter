@@ -8,7 +8,7 @@ class DrawPersonalTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (data["length"] == "0") {
+    if (data.keys.contains("failed")) {
       return new Center(
         child: Text(Strings.noScheduleError),
       );
