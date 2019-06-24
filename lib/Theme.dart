@@ -21,6 +21,13 @@ class CustomThemes {
       labelColor: Colors.white,
       unselectedLabelColor: Colors.white54
     ),
+    textTheme: TextTheme(
+      body1: TextStyle(color: Colors.black54),
+      subhead: TextStyle(color: Colors.black54)
+    ),
+    iconTheme: IconThemeData(
+      color: Colors.black54
+    )
   );
 
   static final light = _template.copyWith(
