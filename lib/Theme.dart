@@ -34,9 +34,4 @@ class CustomThemes {
     brightness: Brightness.light,
     accentColorBrightness: Brightness.light
   );
-
-  static final dark = _template.copyWith(
-    brightness: Brightness.dark,
-    accentColorBrightness: Brightness.dark,
-  );
 }

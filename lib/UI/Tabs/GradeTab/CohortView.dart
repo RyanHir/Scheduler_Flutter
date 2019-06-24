@@ -14,7 +14,6 @@ class CohortView extends StatelessWidget {
 
     return new MaterialApp(
       theme: Theme.of(context),
-      darkTheme: Theme.of(context),
       home: new Scaffold(
         appBar: new AppBar(
           leading: new IconButton(
