@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
+import 'package:scheduler/Theme.dart';
 import 'package:scheduler/Tools/MainLayoutProcessing.dart';
 import 'package:scheduler/Tools/WidgetSelector.dart';
 import 'package:scheduler/UI/MainLayout/MainAppSettings.dart';
@@ -32,37 +33,30 @@ class MainLayoutClass extends State<MainLayout> {
       mainLayoutProcessing.refresh();
     }
 
-    Widget _appBar() {
-      return new AppBar(
-        title: new Text(Constants.title),
-        actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-        bottom: TabBar(
-          tabs: [
-            Tab(text: "Your Schedule"),
-            Tab(text: "Grade Schedule"),
-            Tab(text: "Your Info"),
-          ],
-        ),
-      );
-    }
-
-    Widget _appBarTabs() {
-      return new TabBarView(
-        children: [
-          WidgetSelector(this, "personal"),
-          WidgetSelector(this, "grade"),
-          WidgetSelector(this, "info")
-        ],
-      );
-    }
-
     return new MaterialApp(
-      theme: Constants.theme,
+      theme: CustomThemes.light,
+      darkTheme: CustomThemes.dark,
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-          appBar: _appBar(),
-          body: _appBarTabs(),
+          appBar: AppBar(
+            title: new Text(Constants.title),
+            actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
+            bottom: TabBar(
+              tabs: [
+                Tab(text: "Your Schedule"),
+                Tab(text: "Grade Schedule"),
+                Tab(text: "Your Info"),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              WidgetSelector(this, "personal"),
+              WidgetSelector(this, "grade"),
+              WidgetSelector(this, "info")
+            ],
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
