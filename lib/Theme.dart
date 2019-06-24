@@ -4,6 +4,7 @@ class CustomThemes {
   static final ThemeData _template = ThemeData(
     brightness: Brightness.light,
     accentColorBrightness: Brightness.light,
+    primarySwatch: Colors.purple,
     primaryColor: Colors.purple[400],
     fontFamily: 'Montserrat',
     appBarTheme: AppBarTheme(
