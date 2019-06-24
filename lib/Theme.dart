@@ -4,7 +4,7 @@ class CustomThemes {
   static final ThemeData _template = ThemeData(
     brightness: Brightness.light,
     accentColorBrightness: Brightness.light,
-    primaryColor: Colors.purple,
+    primaryColor: Colors.purple[400],
     fontFamily: 'Montserrat',
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
@@ -19,7 +19,7 @@ class CustomThemes {
     ),
     tabBarTheme: TabBarTheme(
       labelColor: Colors.white,
-      unselectedLabelColor: Colors.white54
+      unselectedLabelColor: Colors.white54,
     ),
     textTheme: TextTheme(
       body1: TextStyle(color: Colors.black87),
