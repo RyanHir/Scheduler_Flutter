@@ -1,15 +1,21 @@
 {
     "info": {
-        "": "",
-        "id": 119,
         "First Name": "Ryan",
-        "Last Name": "Hirasaki"
+        "Last Name": "Hirasaki",
+        "LOTE": "",
+        "Group": 2,
+        "Cohort": "",
+        "Email": "ryan.hirasaki.1@mypisd.net",
+        "Schedule": "A",
+        "Combined Name": "Hirasaki, Ryan",
+        "": "",
+        "id": 134
     },
     "motd": {
-        "local": "<h1>10th Grade Tutorial Schedule</h1><table style=\\\"width:50%;margin:0 auto\\\"><tr bgcolor=\\\"#AAA\\\"><td><b>Time</b></td><td><b>Class</b></td></tr><tr bgcolor=\\\"#EEE\\\"><td>12:30 to 1:00</td><td>Engineering</td></tr><tr bgcolor=\\\"#EEE\\\"><td>1:00 to 1:30</td><td>Biology, LOTE</td></tr></table><h2>Check with facilitator for location</h2>",
+        "local": "Hello<div class = \\\"noanimation\\\"><br><h1>🏆Cohort Cup🏆</h1><table><tr bgcolor=\\\"#AAA\\\"><td>A</td><td>B</td><td>C</td><td>D</td></tr><tr bgcolor=\\\"#EEE\\\"><td>35🥉</td><td>65🥈</td><td>95🥇</td><td>15</td></tr></table><br><br></div><br>",
         "global": ""
     },
-    "isAdmin": false,
+    "isAdmin": true,
     "table": [
         [
             {
@@ -20,230 +26,74 @@
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "9:20 - 10:08"
+                "text": "9:20"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "10:11 - 10:59"
+                "text": "10:15"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "11:02 - 11:39"
+                "text": "11:00"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "11:42 - 12:30"
+                "text": "11:45"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "12:30 - 1:30"
+                "text": "12:30"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "1:30 - 2:18"
+                "text": "1:30"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "2:21 - 3:09"
+                "text": "2:15"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "3:12 - 4:00"
+                "text": "3:00"
             },
             {
                 "type": "TIME",
                 "color": "#AAA",
-                "text": "4:00 - 4:30"
+                "text": "4:00"
             }
         ],
         [
             {
                 "type": "QUERY",
                 "color": "#AAA",
-                "text": "Group : 11 - 19 & Cohort : A"
+                "text": "Schedule : A"
             },
             {
                 "type": "MOD",
-                "color": "#e06666 ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
+                "color": "#f4cccc",
+                "text": "Comp Sci LS15"
             },
             {
                 "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
+                "color": "#b6d7a8",
+                "text": "English LS16"
             },
             {
                 "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
+                "color": "#b4a7d6",
+                "text": "SRD LS17"
             },
             {
                 "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
-                "text": "Lunch"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
-            },
-            {
-                "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
-            }
-        ],
-        [
-            {
-                "type": "QUERY",
-                "color": "#AAA",
-                "text": "Group : 11 - 19 & Cohort : B"
-            },
-            {
-                "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
-            },
-            {
-                "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
-            },
-            {
-                "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
-                "text": "Lunch"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
-            },
-            {
-                "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
-            }
-        ],
-        [
-            {
-                "type": "QUERY",
-                "color": "#AAA",
-                "text": "Group : 21 - 29 & Cohort : A"
-            },
-            {
-                "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
-            },
-            {
-                "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
-                "text": "Lunch"
-            },
-            {
-                "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
-            },
-            {
-                "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
-            }
-        ],
-        [
-            {
-                "type": "QUERY",
-                "color": "#AAA",
-                "text": "Group : 21 - 29 & Cohort : B"
-            },
-            {
-                "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
-            },
-            {
-                "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
+                "color": "#a4c2f4",
+                "text": "Project Time"
             },
             {
                 "type": "MOD",
@@ -252,285 +102,130 @@
             },
             {
                 "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
+                "color": "#fff2cc",
+                "text": "Calculus/Precalculus LS18"
             },
             {
                 "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
+                "color": "#d9ead3",
+                "text": "Government LS14"
             },
             {
                 "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
+                "color": "#a4c2f4",
+                "text": "Project Time"
             },
             {
                 "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
+                "color": "#a2c4c9",
+                "text": "Club/Satellite"
             }
         ],
         [
             {
                 "type": "QUERY",
                 "color": "#AAA",
-                "text": "Group : 31 - 39"
+                "text": "not ~lastname : a - Z"
+            },
+            {
+                "type": "EMPTY",
+                "color": "#000",
+                "text": ""
             },
             {
                 "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
+                "color": "#fff2cc",
+                "text": "Calculus/Precalculus LS18"
             },
             {
                 "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
+                "color": "#fff2cc",
+                "text": "Calculus/Precalculus LS18"
             },
             {
                 "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
+                "color": "#b4a7d6",
+                "text": "SRD LS17"
             },
             {
                 "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
+                "color": "#d9d9d9",
                 "text": "Lunch"
             },
             {
                 "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
+                "color": "#b4a7d6",
+                "text": "SRD LS17"
             },
             {
                 "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
+                "color": "#FFF",
+                "text": "Government LS14 OR Club/Satellite"
             },
             {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
+                "type": "EMPTY",
+                "color": "#000",
+                "text": ""
             }
         ],
         [
             {
                 "type": "QUERY",
                 "color": "#AAA",
-                "text": "Group : 41 - 49 & Cohort : D"
+                "text": "Schedule : B"
             },
             {
                 "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
+                "color": "#FFF",
+                "text": "Government LS14 OR Calculus/Precalculus LS18"
             },
             {
                 "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
+                "color": "#FFF",
+                "text": "Comp Sci LS15 OR Calculus/Precalculus LS18"
             },
             {
                 "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
+                "color": "#fff2cc",
+                "text": "Calculus/Precalculus LS18"
             },
             {
                 "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
+                "color": "#a4c2f4",
+                "text": "Project Time"
             },
             {
                 "type": "MOD",
-                "color": "#d9d9d9  ",
+                "color": "#d9d9d9",
                 "text": "Lunch"
             },
             {
                 "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
+                "color": "#b4a7d6",
+                "text": "SRD LS17"
             },
             {
                 "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
+                "color": "#b6d7a8",
+                "text": "English LS16"
             },
             {
                 "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
+                "color": "#a4c2f4",
+                "text": "Project Time"
             },
             {
                 "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
+                "color": "#a2c4c9",
+                "text": "Club/Satellite"
             }
         ],
-        [
-            {
-                "type": "QUERY",
-                "color": "#AAA",
-                "text": "Group : 41 - 49 & Cohort : E"
-            },
-            {
-                "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
-            },
-            {
-                "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
-                "text": "Lunch"
-            },
-            {
-                "type": "MOD",
-                "color": "#ffd966",
-                "text": "Cooke in LS 6"
-            },
-            {
-                "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
-            }
-        ],
-        [
-            {
-                "type": "QUERY",
-                "color": "#AAA",
-                "text": "Group : 51 - 59 & Cohort : D"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
-            },
-            {
-                "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
-                "text": "Lunch"
-            },
-            {
-                "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
-            },
-            {
-                "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS 5"
-            },
-            {
-                "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
-            }
-        ],
-        [
-            {
-                "type": "QUERY",
-                "color": "#AAA",
-                "text": "Group : 51 - 59 & Cohort : E"
-            },
-            {
-                "type": "MOD",
-                "color": "#76a5af  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#8e7cc3  ",
-                "text": "Fawcett and Gunnels in LS 3"
-            },
-            {
-                "type": "MOD",
-                "color": "#b7b7b7  ",
-                "text": "Cafe/Fab Lab: 14, 15, 17, 18, 23, 25, 31, 32, 42, 43, 51, 53.  LS 1: 11, 13, 16, 21, 24, 33, 56.LS 3: 26, 41, 46, 52, 54, 55.  PA1 12, 22, 34, 35, 44, 45"
-            },
-            {
-                "type": "MOD",
-                "color": "#ffd966  ",
-                "text": "Cooke in LS 6"
-            },
-            {
-                "type": "MOD",
-                "color": "#d9d9d9  ",
-                "text": "Lunch"
-            },
-            {
-                "type": "MOD",
-                "color": "#6d9eeb  ",
-                "text": "Stamets in Lab 2"
-            },
-            {
-                "type": "MOD",
-                "color": "#93c47d  ",
-                "text": "Aponte and Humphrey in PA 1"
-            },
-            {
-                "type": "MOD",
-                "color": "#e06666  ",
-                "text": "Brown/Terrell in LS 13/LS 19, NON-LOTE in LS  5"
-            },
-            {
-                "type": "MOD",
-                "color": "#c27ba0  ",
-                "text": "Clubs"
-            }
-        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
         [],
         [],
         [],
@@ -540,9 +235,103 @@
         []
     ],
     "schedule": {
-        "length": "0",
-        "failed": "No schedule found"
+        "0": {
+            "color": "#f4cccc",
+            "name": "Comp Sci LS15",
+            "key": "COMP",
+            "startTime": "1899-12-30T15:20:00.000Z",
+            "endTime": "1899-12-30T16:15:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 1
+        },
+        "1": {
+            "color": "#b6d7a8",
+            "name": "English LS16",
+            "key": "ENG",
+            "startTime": "1899-12-30T16:15:00.000Z",
+            "endTime": "1899-12-30T17:00:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 2
+        },
+        "2": {
+            "color": "#b4a7d6",
+            "name": "SRD LS17",
+            "key": "SRD",
+            "startTime": "1899-12-30T17:00:00.000Z",
+            "endTime": "1899-12-30T17:45:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 3
+        },
+        "3": {
+            "color": "#a4c2f4",
+            "name": "Project Time",
+            "key": "PT",
+            "startTime": "1899-12-30T17:45:00.000Z",
+            "endTime": "1899-12-30T18:30:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 4
+        },
+        "4": {
+            "color": "#d9d9d9",
+            "name": "Lunch",
+            "key": "LUNCH",
+            "startTime": "1899-12-30T18:30:00.000Z",
+            "endTime": "1899-12-30T19:30:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 5
+        },
+        "5": {
+            "color": "#fff2cc",
+            "name": "Calculus/Precalculus LS18",
+            "key": "CAL",
+            "startTime": "1899-12-30T19:30:00.000Z",
+            "endTime": "1899-12-30T20:15:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 6
+        },
+        "6": {
+            "color": "#d9ead3",
+            "name": "Government LS14",
+            "key": "GOVT",
+            "startTime": "1899-12-30T20:15:00.000Z",
+            "endTime": "1899-12-30T21:00:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 7
+        },
+        "7": {
+            "color": "#a4c2f4",
+            "name": "Project Time",
+            "key": "PT",
+            "startTime": "1899-12-30T21:00:00.000Z",
+            "endTime": "1899-12-30T22:00:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 8
+        },
+        "8": {
+            "color": "#a2c4c9",
+            "name": "Club/Satellite",
+            "key": "CLUB",
+            "startTime": "1899-12-30T22:00:00.000Z",
+            "endTime": "2017-02-01T22:30:00.000Z",
+            "slots": -1,
+            "row": 0,
+            "col": 9
+        },
+        "needsSelection": false,
+        "length": 9
     },
-    "day": "29",
-    "grade": "10"
+    "admin": {
+        "controlPanel": "https://docs.google.com/spreadsheets/d/1I1tOOUHjoeqWRTUcbDeO5WXNDBERg9mH3EWMa1X9cNg/edit#gid=0",
+        "rosterURL": "https://docs.google.com/spreadsheets/d/1X41qOd8jfgU79PchJ4w08pCJ7wvIzKoEK1HpaGs-DzU/edit?usp=sharing"
+    },
+    "day": "25",
+    "grade": "8"
 }
