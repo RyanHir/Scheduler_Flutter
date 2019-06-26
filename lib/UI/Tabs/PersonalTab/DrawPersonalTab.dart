@@ -8,8 +8,8 @@ class DrawPersonalTable extends StatelessWidget {
   DrawPersonalTable(this.data);
 
   String _parseTime(DateTime input) {
-    String hour = input.hour.toInt() > 12 ? (input.hour.toInt() - 12).toString() : input.hour.toString();
-    String min = input.minute.toString();
+    String hour = input.toLocal().hour.toInt() > 12 ? (input.toLocal().hour.toInt() - 12).toString() : input.toLocal().hour.toString();
+    String min = input.toLocal().minute.toString();
 
     // if(hour.length == 1) {
     //   hour = "0$hour";
