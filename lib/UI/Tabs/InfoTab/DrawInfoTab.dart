@@ -10,7 +10,7 @@ class ShowInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map<String, dynamic> toReturn = data;
-    toReturn.removeWhere((x, y) => Constants.dataToIgnore.contains(x));
+    toReturn.removeWhere((x, y) => Constants.dataToIgnore.contains(x) || data[y] == "");
 
     List<String> keys = toReturn.keys.toList();
 
@@ -19,6 +19,7 @@ class ShowInfo extends StatelessWidget {
       itemBuilder: (context, i) {
         final key = keys[i].toString();
         final val = toReturn[key].toString();
+
         return new ListTile(
           title: Text("$key: $val")
         );

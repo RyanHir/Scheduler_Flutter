@@ -7,6 +7,20 @@ class DrawPersonalTable extends StatelessWidget {
 
   DrawPersonalTable(this.data);
 
+  String _parseTime(DateTime input) {
+    String hour = input.hour.toInt() > 12 ? (input.hour.toInt() - 12).toString() : input.hour.toString();
+    String min = input.minute.toString();
+
+    // if(hour.length == 1) {
+    //   hour = "0$hour";
+    // }
+    if(min.length == 1) {
+      min = "0$min";
+    }
+
+    return "$hour:$min";
+  }
+
   @override
   Widget build(BuildContext context) {
     if (data.keys.contains("failed")) {
@@ -15,17 +29,15 @@ class DrawPersonalTable extends StatelessWidget {
       );
     }
 
-    List<dynamic> _newData = [];
-    for (var x in data) {
-      if (x == null) return new Center(child: Text(Strings.pleaseReload));
-      for (var y in x) {
-        _newData.insert(_newData.length, y);
-      }
-    }
+    List<dynamic> _newData = data.keys.toList();
+
+    _newData.removeWhere((item) => item == "length" || item == "needsSelection");
 
     return new ListView.builder(
-        itemCount: _newData[0].length,
+        itemCount: _newData.length,
         itemBuilder: (BuildContext context, int i) {
+          DateTime _beginTime = DateTime.parse(data[i.toString()]["startTime"]);
+          DateTime _endTime = DateTime.parse(data[i.toString()]["endTime"]);
           return Card(
             elevation: Constants.cardElevation,
             margin: EdgeInsets.all(8.0),
@@ -35,12 +47,12 @@ class DrawPersonalTable extends StatelessWidget {
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
                   Text(
-                    _newData[0][i]["text"],
+                    _parseTime(_beginTime) + " - " + _parseTime(_endTime),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 24),
                   ),
                   Text(
-                    _newData[1][i]["text"],
+                    data[i.toString()]["name"],
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16),
                   )

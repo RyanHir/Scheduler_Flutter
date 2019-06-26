@@ -14,7 +14,7 @@ class DrawCohortTable extends StatelessWidget {
         (item) => item["type"] == "QUERY" || item["type"] == "KEY"));
 
     return new ListView.builder(
-        itemCount: newData[0].length,
+        itemCount: newData[1].length,
         itemBuilder: (BuildContext context, int i) {
           return Card(
             elevation: Constants.cardElevation,
