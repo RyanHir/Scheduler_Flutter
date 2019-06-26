@@ -39,10 +39,6 @@ class DrawPersonalTable extends StatelessWidget {
           DateTime _beginTime = DateTime.parse(data[i.toString()]["startTime"]);
           DateTime _endTime = DateTime.parse(data[i.toString()]["endTime"]);
           return Card(
-            elevation: Constants.cardElevation,
-            margin: EdgeInsets.all(8.0),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: Container(
                 padding: EdgeInsets.all(16),
                 child: Column(children: [

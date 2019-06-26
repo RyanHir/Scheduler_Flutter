@@ -28,6 +28,10 @@ class CustomThemes {
     ),
     iconTheme: IconThemeData(
       color: Colors.black87
+    ),
+    cardTheme: CardTheme(
+      margin: EdgeInsets.all(8.0),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
     )
   );
 
