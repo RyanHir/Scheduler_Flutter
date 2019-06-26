@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Strings.dart';
 
 class DrawPersonalTable extends StatelessWidget {

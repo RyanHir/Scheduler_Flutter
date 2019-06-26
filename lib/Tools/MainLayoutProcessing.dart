@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:scheduler/Constants.dart';
-import 'package:scheduler/Templates/SchedulerAssets.dart';
 import 'package:scheduler/Tools/Storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:scheduler/UI/MainLayout.dart';
