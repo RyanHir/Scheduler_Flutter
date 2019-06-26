@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scheduler/Strings.dart';
+import 'package:scheduler/Tools/HexColor.dart';
 
 class DrawPersonalTable extends StatelessWidget {
   final data;
@@ -39,6 +40,7 @@ class DrawPersonalTable extends StatelessWidget {
           DateTime _endTime = DateTime.parse(data[i.toString()]["endTime"]);
           return Card(
             child: Container(
+              color: HexColor(data[i.toString()]["color"]),
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
                   Text(

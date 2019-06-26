@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scheduler/Tools/HexColor.dart';
 
 class DrawCohortTable extends StatelessWidget {
   final List<dynamic> data;
@@ -17,6 +18,7 @@ class DrawCohortTable extends StatelessWidget {
         itemBuilder: (BuildContext context, int i) {
           return Card(
             child: Container(
+              color: HexColor(data[0][i]["color"]),
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
                   Text(
