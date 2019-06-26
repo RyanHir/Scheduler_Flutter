@@ -58,7 +58,6 @@ class IndividualSchedule {
     if (input.containsKey("failed")) {
       failed = input["failed"];
     } else {
-      //TODO: Read the Single User Data
     }
   }
 }

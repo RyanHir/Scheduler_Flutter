@@ -4,7 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Strings.dart';
 import 'package:scheduler/Tools/Storage.dart';
-import 'package:scheduler/UI/Settings/About.dart';
 import 'package:scheduler/UI/Settings/GradePopup.dart';
 
 class Settings extends StatefulWidget {
@@ -131,18 +130,7 @@ class SettingsClass extends State<Settings> {
                               builder: (BuildContext context) {
                                 return new GradePopup(this);
                               });
-                        }),
-                    new ListTile(
-                      leading: new Icon(Constants.infoIcon),
-                      title: new Text(Strings.about),
-                      onTap: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return new About();
-                            });
-                      },
-                    )
+                        })
                   ],
                 ),
               ),
