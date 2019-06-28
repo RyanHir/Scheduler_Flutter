@@ -8,13 +8,15 @@ class DrawPersonalTable extends StatelessWidget {
   DrawPersonalTable(this.data);
 
   String _parseTime(DateTime input) {
-    String hour = input.toLocal().hour.toInt() > 12 ? (input.toLocal().hour.toInt() - 12).toString() : input.toLocal().hour.toString();
+    String hour = input.toLocal().hour.toInt() > 12
+        ? (input.toLocal().hour.toInt() - 12).toString()
+        : input.toLocal().hour.toString();
     String min = input.toLocal().minute.toString();
 
     // if(hour.length == 1) {
     //   hour = "0$hour";
     // }
-    if(min.length == 1) {
+    if (min.length == 1) {
       min = "0$min";
     }
 
@@ -31,30 +33,33 @@ class DrawPersonalTable extends StatelessWidget {
 
     List<dynamic> _newData = data.keys.toList();
 
-    _newData.removeWhere((item) => item == "length" || item == "needsSelection");
+    _newData
+        .removeWhere((item) => item == "length" || item == "needsSelection");
 
     return new ListView.builder(
         itemCount: _newData.length,
         itemBuilder: (BuildContext context, int i) {
           DateTime _beginTime = DateTime.parse(data[i.toString()]["startTime"]);
           DateTime _endTime = DateTime.parse(data[i.toString()]["endTime"]);
-          return Card(
-            child: Container(
-              color: HexColor(data[i.toString()]["color"]),
-                padding: EdgeInsets.all(16),
-                child: Column(children: [
-                  Text(
-                    _parseTime(_beginTime) + " - " + _parseTime(_endTime),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  Text(
-                    data[i.toString()]["name"],
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16),
-                  )
-                ])),
-          );
+          return Theme(
+              data: Theme.of(context)
+                  .copyWith(cardColor: HexColor(data[i.toString()]["color"])),
+              child: Card(
+                child: Container(
+                    padding: EdgeInsets.all(16),
+                    child: Column(children: [
+                      Text(
+                        _parseTime(_beginTime) + " - " + _parseTime(_endTime),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 24),
+                      ),
+                      Text(
+                        data[i.toString()]["name"],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16),
+                      )
+                    ])),
+              ));
         });
   }
 }
