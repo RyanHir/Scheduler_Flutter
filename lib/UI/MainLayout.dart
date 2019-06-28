@@ -36,8 +36,12 @@ class MainLayoutClass extends State<MainLayout> {
     }
 
     bool _schedulePresent;
-    if (data.keys.contains("table")) {
-      _schedulePresent = true;
+    if (!isLoading) {
+      if (data.keys.contains("table")) {
+        _schedulePresent = true;
+      } else {
+        _schedulePresent = false;
+      }
     } else {
       _schedulePresent = false;
     }
@@ -47,31 +51,34 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-          appBar: AppBar(
-            title: new Text(Constants.title),
-            actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-            bottom: _schedulePresent
-                ? TabBar(
-                    tabs: [
-                      Tab(text: "Your Schedule"),
-                      Tab(text: "Grade Schedule"),
-                      Tab(text: "Your Info"),
-                    ],
+            appBar: AppBar(
+              title: new Text(Constants.title),
+              actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
+              bottom: _schedulePresent || !isLoading
+                  ? TabBar(
+                      tabs: [
+                        Tab(text: "Your Schedule"),
+                        Tab(text: "Grade Schedule"),
+                        Tab(text: "Your Info"),
+                      ],
+                    )
+                  : null,
+            ),
+            body: isLoading
+                ? Center(
+                    child: CircularProgressIndicator(),
                   )
-                : null,
-          ),
-          body: _schedulePresent
-              ? TabBarView(
-                  children: [
-                    WidgetSelector(this, "personal"),
-                    WidgetSelector(this, "grade"),
-                    WidgetSelector(this, "info")
-                  ],
-                )
-              : Center(
-                  child: Text("No Schedule on $_day"),
-                ),
-        ),
+                : (_schedulePresent
+                    ? TabBarView(
+                        children: [
+                          WidgetSelector(this, "personal"),
+                          WidgetSelector(this, "grade"),
+                          WidgetSelector(this, "info")
+                        ],
+                      )
+                    : Center(
+                        child: Text("No Schedule on $_day"),
+                      ))),
       ),
       debugShowCheckedModeBanner: false,
     );
