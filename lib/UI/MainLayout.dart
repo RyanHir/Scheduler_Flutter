@@ -54,7 +54,7 @@ class MainLayoutClass extends State<MainLayout> {
             appBar: AppBar(
               title: new Text(Constants.title),
               actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-              bottom: _schedulePresent || !isLoading
+              bottom: _schedulePresent && !isLoading
                   ? TabBar(
                       tabs: [
                         Tab(text: "Your Schedule"),
