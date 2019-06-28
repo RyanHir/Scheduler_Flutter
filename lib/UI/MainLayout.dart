@@ -28,9 +28,18 @@ class MainLayoutClass extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime _time = new DateTime.now();
+    String _day = _time.month.toString() + "/" + _time.day.toString();
     if (data == null) {
       mainLayoutProcessing = new MainLayoutProcessing(this);
       mainLayoutProcessing.refresh();
+    }
+
+    bool _schedulePresent;
+    if (data.keys.contains("table")) {
+      _schedulePresent = true;
+    } else {
+      _schedulePresent = false;
     }
 
     return new MaterialApp(
@@ -41,21 +50,27 @@ class MainLayoutClass extends State<MainLayout> {
           appBar: AppBar(
             title: new Text(Constants.title),
             actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-            bottom: TabBar(
-              tabs: [
-                Tab(text: "Your Schedule"),
-                Tab(text: "Grade Schedule"),
-                Tab(text: "Your Info"),
-              ],
-            ),
+            bottom: _schedulePresent
+                ? TabBar(
+                    tabs: [
+                      Tab(text: "Your Schedule"),
+                      Tab(text: "Grade Schedule"),
+                      Tab(text: "Your Info"),
+                    ],
+                  )
+                : null,
           ),
-          body: TabBarView(
-            children: [
-              WidgetSelector(this, "personal"),
-              WidgetSelector(this, "grade"),
-              WidgetSelector(this, "info")
-            ],
-          ),
+          body: _schedulePresent
+              ? TabBarView(
+                  children: [
+                    WidgetSelector(this, "personal"),
+                    WidgetSelector(this, "grade"),
+                    WidgetSelector(this, "info")
+                  ],
+                )
+              : Center(
+                  child: Text("No Schedule on $_day"),
+                ),
         ),
       ),
       debugShowCheckedModeBanner: false,

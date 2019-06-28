@@ -1,0 +1,24 @@
+{
+    "info": {
+        "First Name": "Ryan",
+        "Last Name": "Hirasaki",
+        "LOTE": "",
+        "Group": 2,
+        "Cohort": "",
+        "Email": "ryan.hirasaki.1@mypisd.net",
+        "Schedule": "A",
+        "Combined Name": "Hirasaki, Ryan",
+        "": "",
+        "id": 134
+    },
+    "motd": {
+        "global": ""
+    },
+    "isAdmin": true,
+    "admin": {
+        "controlPanel": "https://docs.google.com/spreadsheets/d/1I1tOOUHjoeqWRTUcbDeO5WXNDBERg9mH3EWMa1X9cNg/edit#gid=0",
+        "rosterURL": "https://docs.google.com/spreadsheets/d/1X41qOd8jfgU79PchJ4w08pCJ7wvIzKoEK1HpaGs-DzU/edit?usp=sharing"
+    },
+    "day": "28",
+    "grade": "8"
+}
