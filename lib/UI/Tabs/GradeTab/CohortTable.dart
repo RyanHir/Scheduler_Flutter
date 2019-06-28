@@ -16,9 +16,10 @@ class DrawCohortTable extends StatelessWidget {
     return new ListView.builder(
         itemCount: newData[1].length,
         itemBuilder: (BuildContext context, int i) {
-          return Card(
+          return Theme(
+            data: Theme.of(context).copyWith(cardColor: HexColor(data[1][i]["color"])),
+              child: Card(
             child: Container(
-              color: HexColor(data[0][i]["color"]),
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
                   Text(
@@ -32,7 +33,7 @@ class DrawCohortTable extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   )
                 ])),
-          );
+          ));
         });
   }
 }
