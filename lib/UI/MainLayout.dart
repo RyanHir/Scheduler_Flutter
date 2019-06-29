@@ -50,19 +50,18 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-          bottomNavigationBar: _schedulePresent && !isLoading
-                  ? TabBar(
-                      tabs: [
-                        Tab(text: "Your Schedule"),
-                        Tab(text: "Grade Schedule"),
-                        Tab(text: "Your Info"),
-                      ],
-                    )
-                  : null,
+            bottomNavigationBar: _schedulePresent && !isLoading
+                ? TabBar(
+                    tabs: [
+                      Tab(text: "Your Schedule"),
+                      Tab(text: "Grade Schedule"),
+                      Tab(text: "Your Info"),
+                    ],
+                  )
+                : null,
             appBar: CustomAppBar(
               title: Text(Constants.title),
               parent: this,
-              
             ),
             body: isLoading
                 ? Center(
@@ -93,14 +92,16 @@ class MainLayoutClass extends State<MainLayout> {
   }
 }
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
 
   final MainLayoutClass parent;
 
   final Size preferredSize; // default is 56.0
 
-  CustomAppBar({Key key, this.title, this.parent}) : preferredSize = Size.fromHeight(56.0), super(key: key);
+  CustomAppBar({Key key, this.title, this.parent})
+      : preferredSize = Size.fromHeight(56.0),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -108,16 +109,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
       title: this.title,
       actions: <Widget>[
         IconButton(
-        icon: new Icon(Constants.settingsIcon),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Settings()));
-        }),
+            icon: new Icon(Constants.settingsIcon),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Settings()));
+            }),
         IconButton(
-      icon: new Icon(Constants.refreshIcon),
-      onPressed: () {
-        parent.mainLayoutProcessing.refresh();
-      })
+            icon: new Icon(Constants.refreshIcon),
+            onPressed: () {
+              parent.mainLayoutProcessing.refresh();
+            })
       ],
     );
   }
