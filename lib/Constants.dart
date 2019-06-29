@@ -18,3 +18,13 @@ class Constants {
   static const List<int> grades = <int>[10,11,12];
   static const List<String> dataToIgnore = <String>["id",""];
 }
+
+class Tabs {
+  final _value;
+  const Tabs._internal(this._value);
+  toString() => 'Enum.$_value';
+
+  static const personal = const Tabs._internal('FOO');
+  static const grade = const Tabs._internal('BAR');
+  static const info = const Tabs._internal('BAZ');
+}

@@ -71,9 +71,9 @@ class MainLayoutClass extends State<MainLayout> {
                 : (_schedulePresent
                     ? TabBarView(
                         children: [
-                          WidgetSelector(this, "personal"),
-                          WidgetSelector(this, "grade"),
-                          WidgetSelector(this, "info")
+                          WidgetSelector(this, Tabs.personal),
+                          WidgetSelector(this, Tabs.grade),
+                          WidgetSelector(this, Tabs.info)
                         ],
                       )
                     : Center(
