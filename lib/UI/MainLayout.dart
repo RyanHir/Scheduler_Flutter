@@ -4,8 +4,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Theme.dart';
 import 'package:scheduler/Tools/MainLayoutProcessing.dart';
-import 'package:scheduler/Tools/WidgetSelector.dart';
 import 'package:scheduler/UI/Settings.dart';
+import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
+import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
+import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
 
 class MainLayout extends StatefulWidget {
   @override
@@ -70,9 +72,9 @@ class MainLayoutClass extends State<MainLayout> {
                 : (_schedulePresent
                     ? TabBarView(
                         children: [
-                          WidgetSelector(this, Tabs.personal),
-                          WidgetSelector(this, Tabs.grade),
-                          WidgetSelector(this, Tabs.info)
+                          DrawPersonalTable(data["schedule"]),
+                          DrawGradeList(data["table"]),
+                          ShowInfo(data["info"])
                         ],
                       )
                     : Center(
