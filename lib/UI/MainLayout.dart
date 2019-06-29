@@ -95,14 +95,15 @@ class MainLayoutClass extends State<MainLayout> {
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   final Widget title;
+
   final MainLayoutClass parent;
+
   final Size preferredSize; // default is 56.0
 
   CustomAppBar({Key key, this.title, this.parent}) : preferredSize = Size.fromHeight(56.0), super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return AppBar(
       title: this.title,
       actions: <Widget>[
