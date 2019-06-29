@@ -31,8 +31,9 @@ class MainLayoutProcessing {
     }
 
     if (Constants.debug == false) {
+      //TODO: Change Grade from 8th grade to grade var
       final jsonData = await http.get(
-          Constants.endpoint + "?code=$token&grade=$grade&request=schedule");
+          Constants.endpoint + "?code=$token&grade=8&request=schedule");
       _mainLayoutClass.data = json.decode(jsonData.body);
     } else {
       final jsonData = await rootBundle.loadString("assets/example.json");
