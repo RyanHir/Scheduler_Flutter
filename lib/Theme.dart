@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CustomThemes {
   static final ThemeData _template = ThemeData(
     brightness: Brightness.light,
-    accentColorBrightness: Brightness.light,
     primarySwatch: Colors.purple,
     primaryColor: Colors.purple[400],
     fontFamily: 'Montserrat',
@@ -37,11 +36,6 @@ class CustomThemes {
 
   static final light = _template.copyWith(
     brightness: Brightness.light,
-    accentColorBrightness: Brightness.light
-  );
-
-  static final dark = _template.copyWith(
-    brightness: Brightness.dark,
-    accentColorBrightness: Brightness.dark
+    // accentColorBrightness: Brightness.light
   );
 }
