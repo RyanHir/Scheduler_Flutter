@@ -19,8 +19,8 @@ class CustomThemes {
       )
     ),
     tabBarTheme: TabBarTheme(
-      labelColor: Colors.white,
-      unselectedLabelColor: Colors.white54,
+      labelColor: Colors.black,
+      unselectedLabelColor: Colors.black54,
     ),
     textTheme: TextTheme(
       body1: TextStyle(color: Colors.black87),

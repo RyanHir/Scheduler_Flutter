@@ -51,10 +51,7 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-            appBar: AppBar(
-              title: new Text(Constants.title),
-              actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-              bottom: _schedulePresent && !isLoading
+          bottomNavigationBar: _schedulePresent && !isLoading
                   ? TabBar(
                       tabs: [
                         Tab(text: "Your Schedule"),
@@ -63,7 +60,10 @@ class MainLayoutClass extends State<MainLayout> {
                       ],
                     )
                   : null,
-            ),
+            appBar: AppBar(
+              title: new Text(Constants.title),
+              actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
+              bottom: null),
             body: isLoading
                 ? Center(
                     child: CircularProgressIndicator(),
