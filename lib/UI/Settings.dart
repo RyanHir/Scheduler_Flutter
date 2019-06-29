@@ -121,6 +121,7 @@ class SettingsClass extends State<Settings> {
                         }
                       },
                     ),
+                    new Divider(),
                     new ListTile(
                         leading: new Icon(Constants.gradeIcon),
                         title: new Text(Strings.currentGrade + grade.toString()),

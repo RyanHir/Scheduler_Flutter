@@ -14,7 +14,7 @@ class ShowInfo extends StatelessWidget {
 
     List<String> keys = toReturn.keys.toList();
 
-    return new ListView.builder(
+    return new ListView.separated(
       itemCount: toReturn.keys.length,
       itemBuilder: (context, i) {
         final key = keys[i].toString();
@@ -24,6 +24,8 @@ class ShowInfo extends StatelessWidget {
           title: Text("$key: $val")
         );
       },
+      separatorBuilder: (context, index) => Divider(),
+
     );
   }
   

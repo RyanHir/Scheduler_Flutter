@@ -21,7 +21,7 @@ class DrawGradeList extends StatelessWidget {
     }
 
     data.removeWhere((item) => item[0]["type"].toString() == "KEY");
-    return ListView.builder(
+    return ListView.separated(
       itemCount: data.length,
       itemBuilder: (context, i) {
         return new ListTile(
@@ -33,6 +33,7 @@ class DrawGradeList extends StatelessWidget {
           },
         );
       },
+      separatorBuilder: (context, index) => Divider(),
     );
   }
 }
