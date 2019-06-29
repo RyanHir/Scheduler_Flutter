@@ -16,8 +16,6 @@ class WidgetSelector extends StatelessWidget {
       return new Center(child:Text(Strings.pleaseSignIn));
     } else if (mainLayout.data == null) {
       return new Center(child: CircularProgressIndicator());
-    } else if (mainLayout.isLoading == true) {
-      return new Center(child: CircularProgressIndicator());
     } else {
       switch (tab) {
         case Tabs.personal:

@@ -5,8 +5,7 @@ import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Theme.dart';
 import 'package:scheduler/Tools/MainLayoutProcessing.dart';
 import 'package:scheduler/Tools/WidgetSelector.dart';
-import 'package:scheduler/UI/MainLayout/MainAppSettings.dart';
-import 'package:scheduler/UI/MainLayout/MainAppRefresh.dart';
+import 'package:scheduler/UI/Settings.dart';
 
 class MainLayout extends StatefulWidget {
   @override
@@ -90,5 +89,32 @@ class MainLayoutClass extends State<MainLayout> {
 
   void setIsSignedIn(bool data) {
     setState(() => this.isSignedIn = data);
+  }
+}
+
+class AppBarSettings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new IconButton(
+        icon: new Icon(Constants.settingsIcon),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Settings()));
+        });
+  }
+}
+
+class AppBarRefresh extends StatelessWidget {
+  final MainLayoutClass mainLayoutClass;
+
+  AppBarRefresh(this.mainLayoutClass);
+
+  @override
+  Widget build(BuildContext context) {
+    return new IconButton(
+      icon: new Icon(Constants.refreshIcon),
+      onPressed: () {
+        mainLayoutClass.mainLayoutProcessing.refresh();
+      });
   }
 }
