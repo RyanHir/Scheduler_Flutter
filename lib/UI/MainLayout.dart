@@ -47,6 +47,7 @@ class MainLayoutClass extends State<MainLayout> {
 
     return new MaterialApp(
       theme: CustomThemes.light,
+      darkTheme: CustomThemes.dark,
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
