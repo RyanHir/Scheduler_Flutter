@@ -24,23 +24,25 @@ class MainLayoutClass extends State<MainLayout> {
   GoogleSignInAuthentication googleAccount;
   FirebaseUser firebaseUser;
   MainLayoutProcessing mainLayoutProcessing;
-  bool schedulePresent;
 
   @override
   Widget build(BuildContext context) {
+    DateTime _time = new DateTime.now();
+    String _day = _time.month.toString() + "/" + _time.day.toString();
     if (data == null) {
       mainLayoutProcessing = new MainLayoutProcessing(this);
       mainLayoutProcessing.refresh();
     }
 
+    bool _schedulePresent;
     if (!isLoading) {
       if (data.keys.contains("table")) {
-        schedulePresent = true;
+        _schedulePresent = true;
       } else {
-        schedulePresent = false;
+        _schedulePresent = false;
       }
     } else {
-      schedulePresent = false;
+      _schedulePresent = false;
     }
 
     return new MaterialApp(
@@ -48,7 +50,7 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-            bottomNavigationBar: schedulePresent && !isLoading
+            bottomNavigationBar: _schedulePresent && !isLoading
                 ? TabBar(
                     tabs: [
                       Tab(text: "Your Schedule"),
@@ -61,7 +63,21 @@ class MainLayoutClass extends State<MainLayout> {
               title: Text(Constants.title),
               parent: this,
             ),
-            body: Body()),
+            body: isLoading
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : (_schedulePresent
+                    ? TabBarView(
+                        children: [
+                          WidgetSelector(this, Tabs.personal),
+                          WidgetSelector(this, Tabs.grade),
+                          WidgetSelector(this, Tabs.info)
+                        ],
+                      )
+                    : Center(
+                        child: Text("No Schedule on $_day"),
+                      ))),
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -93,45 +109,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: this.title,
       actions: <Widget>[
         IconButton(
+            icon: new Icon(Constants.refreshIcon),
+            onPressed: () {
+              parent.mainLayoutProcessing.refresh();
+            }),
+        IconButton(
             icon: new Icon(Constants.settingsIcon),
             onPressed: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Settings()));
             }),
-        IconButton(
-            icon: new Icon(Constants.refreshIcon),
-            onPressed: () {
-              parent.mainLayoutProcessing.refresh();
-            })
       ],
     );
-  }
-}
-
-class Body extends StatelessWidget {
-
-  final MainLayoutClass parent;
-
-  Body({this.parent});
-
-  @override
-  Widget build(BuildContext context) {
-    DateTime _time = new DateTime.now();
-    String _day = _time.month.toString() + "/" + _time.day.toString();
-    return parent.isLoading
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : (parent.schedulePresent
-                    ? TabBarView(
-                        children: [
-                          WidgetSelector(parent, Tabs.personal),
-                          WidgetSelector(parent, Tabs.grade),
-                          WidgetSelector(parent, Tabs.info)
-                        ],
-                      )
-                    : Center(
-                        child: Text("No Schedule on $_day"),
-                      ));
   }
 }
