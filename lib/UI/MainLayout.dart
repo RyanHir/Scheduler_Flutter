@@ -59,10 +59,11 @@ class MainLayoutClass extends State<MainLayout> {
                       ],
                     )
                   : null,
-            appBar: AppBar(
-              title: new Text(Constants.title),
-              actions: <Widget>[new AppBarRefresh(this), new AppBarSettings()],
-              bottom: null),
+            appBar: CustomAppBar(
+              title: Text(Constants.title),
+              parent: this,
+              
+            ),
             body: isLoading
                 ? Center(
                     child: CircularProgressIndicator(),
@@ -92,29 +93,31 @@ class MainLayoutClass extends State<MainLayout> {
   }
 }
 
-class AppBarSettings extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+  final Widget title;
+  final MainLayoutClass parent;
+  final Size preferredSize; // default is 56.0
+
+  CustomAppBar({Key key, this.title, this.parent}) : preferredSize = Size.fromHeight(56.0), super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new IconButton(
+    // TODO: implement build
+    return AppBar(
+      title: this.title,
+      actions: <Widget>[
+        IconButton(
         icon: new Icon(Constants.settingsIcon),
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Settings()));
-        });
-  }
-}
-
-class AppBarRefresh extends StatelessWidget {
-  final MainLayoutClass mainLayoutClass;
-
-  AppBarRefresh(this.mainLayoutClass);
-
-  @override
-  Widget build(BuildContext context) {
-    return new IconButton(
+        }),
+        IconButton(
       icon: new Icon(Constants.refreshIcon),
       onPressed: () {
-        mainLayoutClass.mainLayoutProcessing.refresh();
-      });
+        parent.mainLayoutProcessing.refresh();
+      })
+      ],
+    );
   }
 }
