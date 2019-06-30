@@ -26,25 +26,23 @@ class MainLayoutClass extends State<MainLayout> {
   GoogleSignInAuthentication googleAccount;
   FirebaseUser firebaseUser;
   MainLayoutProcessing mainLayoutProcessing;
+  bool schedulePresent;
 
   @override
   Widget build(BuildContext context) {
-    DateTime _time = new DateTime.now();
-    String _day = _time.month.toString() + "/" + _time.day.toString();
     if (data == null) {
       mainLayoutProcessing = new MainLayoutProcessing(this);
       mainLayoutProcessing.refresh();
     }
 
-    bool _schedulePresent;
     if (!isLoading) {
       if (data.keys.contains("table")) {
-        _schedulePresent = true;
+        schedulePresent = true;
       } else {
-        _schedulePresent = false;
+        schedulePresent = false;
       }
     } else {
-      _schedulePresent = false;
+      schedulePresent = false;
     }
 
     return new MaterialApp(
@@ -52,34 +50,15 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-            bottomNavigationBar: _schedulePresent && !isLoading
-                ? TabBar(
-                    tabs: [
-                      Tab(text: "Your Schedule"),
-                      Tab(text: "Grade Schedule"),
-                      Tab(text: "Your Info"),
-                    ],
-                  )
-                : null,
             appBar: CustomAppBar(
               title: Text(Constants.title),
               parent: this,
+              tabController: DefaultTabController.of(context),
             ),
-            body: isLoading
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : (_schedulePresent
-                    ? TabBarView(
-                        children: [
-                          DrawPersonalTable(data["schedule"]),
-                          DrawGradeList(data["table"]),
-                          ShowInfo(data["info"])
-                        ],
-                      )
-                    : Center(
-                        child: Text("No Schedule on $_day"),
-                      ))),
+            body: CustomBody(
+              parent: this,
+              tabController: DefaultTabController.of(context),
+            )),
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -96,12 +75,12 @@ class MainLayoutClass extends State<MainLayout> {
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
-
+  final TabController tabController;
   final MainLayoutClass parent;
 
   final Size preferredSize; // default is 56.0
 
-  CustomAppBar({Key key, this.title, this.parent})
+  CustomAppBar({Key key, this.title, this.parent, this.tabController})
       : preferredSize = Size.fromHeight(56.0),
         super(key: key);
 
@@ -122,6 +101,44 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   context, MaterialPageRoute(builder: (context) => Settings()));
             }),
       ],
+      bottom: parent.schedulePresent && !parent.isLoading
+          ? TabBar(
+              tabs: [
+                Tab(text: "Your Schedule"),
+                Tab(text: "Grade Schedule"),
+                Tab(text: "Your Info"),
+              ],
+            )
+          : null,
     );
+  }
+}
+
+class CustomBody extends StatelessWidget {
+  final MainLayoutClass parent;
+  final TabController tabController;
+
+  CustomBody({this.parent, this.tabController});
+
+  @override
+  Widget build(BuildContext context) {
+    DateTime _time = new DateTime.now();
+    String day = _time.month.toString() + "/" + _time.day.toString();
+
+    return parent.isLoading
+        ? Center(
+            child: CircularProgressIndicator(),
+          )
+        : (parent.schedulePresent
+            ? TabBarView(
+                children: [
+                  DrawPersonalTable(parent.data["schedule"]),
+                  DrawGradeList(parent.data["table"]),
+                  ShowInfo(parent.data["info"])
+                ],
+              )
+            : Center(
+                child: Text("No Schedule on $day"),
+              ));
   }
 }
