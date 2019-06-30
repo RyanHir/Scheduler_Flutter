@@ -125,20 +125,22 @@ class CustomBody extends StatelessWidget {
     DateTime _time = new DateTime.now();
     String day = _time.month.toString() + "/" + _time.day.toString();
 
-    return parent.isLoading
-        ? Center(
-            child: CircularProgressIndicator(),
-          )
-        : (parent.schedulePresent
-            ? TabBarView(
-                children: [
-                  DrawPersonalTable(parent.data["schedule"]),
-                  DrawGradeList(parent.data["table"]),
-                  ShowInfo(parent.data["info"])
-                ],
-              )
-            : Center(
-                child: Text("No Schedule on $day"),
-              ));
+    if (parent.isLoading) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    } else if (parent.schedulePresent) {
+      return TabBarView(
+        children: [
+          DrawPersonalTable(parent.data["schedule"]),
+          DrawGradeList(parent.data["table"]),
+          ShowInfo(parent.data["info"])
+        ],
+      );
+    } else {
+      return Center(
+        child: Text("No Schedule on $day"),
+      );
+    }
   }
 }
