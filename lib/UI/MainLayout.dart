@@ -103,6 +103,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
       bottom: parent.schedulePresent && !parent.isLoading
           ? TabBar(
+              controller: tabController,
               tabs: [
                 Tab(text: "Your Schedule"),
                 Tab(text: "Grade Schedule"),
@@ -131,6 +132,7 @@ class CustomBody extends StatelessWidget {
       );
     } else if (parent.schedulePresent) {
       return TabBarView(
+        controller: tabController,
         children: [
           DrawPersonalTable(parent.data["schedule"]),
           DrawGradeList(parent.data["table"]),
