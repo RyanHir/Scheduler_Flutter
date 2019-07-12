@@ -7,6 +7,7 @@ class CustomThemes {
     primaryColor: Colors.purple[400],
     fontFamily: 'Montserrat',
     appBarTheme: AppBarTheme(
+      
       textTheme: TextTheme(
         title: TextStyle(
           color: Colors.white,

@@ -18,22 +18,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppClass extends State<MyApp> {
-  bool _isLoading = false;
+  bool _isLoading = true;
   bool _firstTime = true;
 
   Future<void> checkIfFirstLoad() async {
-    int _rawdata = Storage.read("firstload") ?? 1;
+    int _rawdata = (await Storage.read("firstload")) ?? 1;
 
-    _firstTime = _rawdata == 0 ? false : true;
-
+    setState(() {
+      _firstTime = _rawdata != 0 ? false : true;
+      _isLoading = false;
+    });
     return;
+  }
+
+  void goToHome() async {
+    await Storage.save("firstload", 1);
+    setState(() {
+      _firstTime = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    checkIfFirstLoad();
     return _isLoading
         ? _Progress()
-        : (_firstTime ? _FirstTime() : MainLayout());
+        : (_firstTime ? _FirstTime(this) : MainLayout());
   }
 }
 
@@ -49,13 +59,23 @@ class _Progress extends StatelessWidget {
 }
 
 class _FirstTime extends StatefulWidget {
+
+  final _MyAppClass _myAppClass;
+
+  _FirstTime(this._myAppClass);
+
   @override
   State<StatefulWidget> createState() {
-    return _FirstTimePage();
+    return _FirstTimePage(_myAppClass);
   }
 }
 
 class _FirstTimePage extends State<_FirstTime> {
+
+  final _MyAppClass _myAppClass;
+
+  _FirstTimePage(this._myAppClass);
+
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -123,9 +143,9 @@ class _FirstTimePage extends State<_FirstTime> {
               ? <Widget>[
                   IconButton(
                     onPressed: () {
-
+                      _myAppClass.goToHome();
                     },
-                    icon: Icon(Icons.forward),
+                    icon: Icon(Icons.arrow_forward),
                   ),
                 ]
               : [],
@@ -167,7 +187,6 @@ class _FirstTimePage extends State<_FirstTime> {
 }
 
 class _GradeSelector extends StatefulWidget {
-
   final _FirstTimePage parent;
 
   _GradeSelector(this.parent);
@@ -179,7 +198,6 @@ class _GradeSelector extends StatefulWidget {
 }
 
 class _GradeSelectorPage extends State<_GradeSelector> {
-
   final _FirstTimePage parent;
 
   _GradeSelectorPage(this.parent);

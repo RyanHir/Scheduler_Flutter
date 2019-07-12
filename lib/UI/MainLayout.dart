@@ -50,15 +50,28 @@ class MainLayoutClass extends State<MainLayout> {
       home: new DefaultTabController(
         length: 3,
         child: new Scaffold(
-            appBar: CustomAppBar(
-              title: Text(Constants.title),
-              parent: this,
-              tabController: DefaultTabController.of(context),
-            ),
-            body: CustomBody(
-              parent: this,
-              tabController: DefaultTabController.of(context),
-            )),
+          appBar: CustomAppBar(
+            title: Text(Constants.title),
+            parent: this,
+            tabController: DefaultTabController.of(context),
+          ),
+          body: CustomBody(
+            parent: this,
+            tabController: DefaultTabController.of(context),
+          ),
+          bottomNavigationBar: schedulePresent && !isLoading
+              ? TabBar(
+                  tabs: [
+                    Tab(
+                        text: "Your Schedule"),
+                    Tab(
+                        text: "Grade Schedule"),
+                    Tab(
+                        text: "Your Info"),
+                  ],
+                )
+              : null,
+        ),
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -101,16 +114,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   context, MaterialPageRoute(builder: (context) => Settings()));
             }),
       ],
-      bottom: parent.schedulePresent && !parent.isLoading
-          ? TabBar(
-              controller: tabController,
-              tabs: [
-                Tab(text: "Your Schedule"),
-                Tab(text: "Grade Schedule"),
-                Tab(text: "Your Info"),
-              ],
-            )
-          : null,
     );
   }
 }
