@@ -20,8 +20,11 @@ class _GradePopupClass extends State<GradePopup> {
 
   _GradePopupClass(this.settingsMenu);
 
+  int embeddedGrade;
+
+
   Widget dropdown(BuildContext context) {
-    var embeddedGrade = settingsMenu.grade;
+    embeddedGrade = embeddedGrade == null ? (settingsMenu == null? 10 : settingsMenu.grade) : embeddedGrade;
     return new DropdownButton<int>(
         items: Constants.grades.map((int value) {
           return new DropdownMenuItem<int>(
