@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Strings.dart';
 import 'package:scheduler/Tools/Storage.dart';
