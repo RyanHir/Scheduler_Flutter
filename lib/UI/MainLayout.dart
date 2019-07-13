@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Theme.dart';
 import 'package:scheduler/Tools/MainLayoutProcessing.dart';
+import 'package:scheduler/UI/Settings.dart';
 import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
 import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
 import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
@@ -27,6 +28,7 @@ class MainLayoutClass extends State<MainLayout> {
   FirebaseUser firebaseUser;
   MainLayoutProcessing mainLayoutProcessing;
   bool schedulePresent;
+  bool error;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,13 @@ class MainLayoutClass extends State<MainLayout> {
     }
 
     if (!isLoading) {
+      if (data.keys.contains("failed")) {
+        error = true;
+      }
+      else {
+        error = false;
+      }
+
       if (data.keys.contains("table")) {
         schedulePresent = true;
       } else {
@@ -43,6 +52,7 @@ class MainLayoutClass extends State<MainLayout> {
       }
     } else {
       schedulePresent = false;
+      error = false;
     }
 
     return new MaterialApp(
@@ -59,7 +69,7 @@ class MainLayoutClass extends State<MainLayout> {
             parent: this,
             tabController: DefaultTabController.of(context),
           ),
-          bottomNavigationBar: schedulePresent && !isLoading
+          bottomNavigationBar: schedulePresent && !isLoading && !error
               ? TabBar(
                   tabs: [
                     Tab(
@@ -108,6 +118,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {
               parent.mainLayoutProcessing.refresh();
             }),
+        IconButton(
+          icon: new Icon(Constants.settingsIcon),
+          onPressed: () {
+            
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Settings()));
+          },
+        )
       ],
     );
   }
@@ -128,7 +146,12 @@ class CustomBody extends StatelessWidget {
       return Center(
         child: CircularProgressIndicator(),
       );
-    } else if (parent.schedulePresent) {
+    } else if (parent.error) {
+      return Center(child: Text(
+        "${parent.data["failed"]}\nTry Again Later"
+      ),);
+    } 
+    else if (parent.schedulePresent) {
       return TabBarView(
         controller: tabController,
         children: [
