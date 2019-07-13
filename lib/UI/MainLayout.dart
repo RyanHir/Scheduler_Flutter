@@ -148,7 +148,8 @@ class CustomBody extends StatelessWidget {
       );
     } else if (parent.error) {
       return Center(child: Text(
-        "${parent.data["failed"]}\nTry Again Later"
+        "${parent.data["failed"]}\nTry Again Later",
+        textAlign: TextAlign.center,
       ),);
     } 
     else if (parent.schedulePresent) {

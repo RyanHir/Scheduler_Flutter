@@ -11,79 +11,20 @@ class Settings extends StatefulWidget {
 }
 
 class SettingsClass extends State<Settings> {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  GoogleSignInAuthentication googleAccount;
-  FirebaseUser firebaseUser;
-
-  String _youAre;
-
-  bool _loaded = false;
   int grade = 10;
-
-  void setGrade(int val) {
-    setState(() {
-      this.grade = val;
-    });
-  }
-
-  static _updateGoogleDisplay(String input) {
-    return Strings.signedInAs + input;
-  }
-
-  _handleSignIn() async {
-    if (googleAccount != null && firebaseUser != null) {
-      return;
-    }
-    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-
-    final AuthCredential credential = GoogleAuthProvider.getCredential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    final FirebaseUser user = await _auth.signInWithCredential(credential);
-
-    setState(() {
-      this.firebaseUser = user;
-      this.googleAccount = googleAuth;
-      _youAre = _updateGoogleDisplay(firebaseUser.displayName);
-    });
-
-  }
-
-  _handleSignOut() async {
-    setState(() {
-      _youAre = null;
-      this.firebaseUser = null;
-      this.googleAccount = null;
-
-      this._googleSignIn.signOut();
-      this._auth.signOut();
-    });
-  }
+  bool _loaded = false;
 
   _loadSettings() async {
-    try {
-      final tempUser = await _googleSignIn.signInSilently();
+    this.grade = await Storage.read("grade");
+    setState(() {
+      _loaded = true;
+    });
+  }
 
-      this.firebaseUser = await _auth.currentUser();
-      this.googleAccount = await tempUser.authentication;
-
-      this.grade = await Storage.read("grade");
-      setState(() {
-        _youAre = _updateGoogleDisplay(firebaseUser.displayName);
-        _loaded = true;
-      });
-    } catch (e) {
-      setState(() {
-        _youAre = null;
-        _loaded = true;
-      });
-    }
+  setGrade(int val) {
+    setState(() {
+      grade = val;
+    });
   }
 
   @override
@@ -111,20 +52,9 @@ class SettingsClass extends State<Settings> {
                 child: new ListView(
                   children: <Widget>[
                     new ListTile(
-                      leading: new Icon(Constants.accountIcon),
-                      title: new Text(_youAre == null ? Strings.pleaseSignInMin : _youAre),
-                      onTap: () {
-                        if (this.googleAccount == null) {
-                          _handleSignIn();
-                        } else {
-                          _handleSignOut();
-                        }
-                      },
-                    ),
-                    new Divider(),
-                    new ListTile(
                         leading: new Icon(Constants.gradeIcon),
-                        title: new Text(Strings.currentGrade + grade.toString()),
+                        title:
+                            new Text(Strings.currentGrade + grade.toString()),
                         onTap: () {
                           showDialog(
                               context: context,
