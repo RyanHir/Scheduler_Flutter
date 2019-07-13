@@ -7,6 +7,7 @@ import 'package:scheduler/UI/MainLayout.dart';
 
 import 'Strings.dart';
 import 'UI/Settings/GradePopup.dart';
+import 'dart:io' show Platform;
 
 void main() => runApp(MyApp());
 
@@ -43,7 +44,14 @@ class _MyAppClass extends State<MyApp> {
     checkIfFirstLoad();
     return _isLoading
         ? _Progress()
-        : (_firstTime ? _FirstTime(this) : MainLayout());
+        : (_firstTime
+            ? MaterialApp(
+                home: _FirstTime(this),
+                theme: CustomThemes.light.copyWith(
+                    cardTheme:
+                        CustomThemes.light.cardTheme.copyWith(elevation: 12)),
+              )
+            : MainLayout());
   }
 }
 
@@ -59,7 +67,6 @@ class _Progress extends StatelessWidget {
 }
 
 class _FirstTime extends StatefulWidget {
-
   final _MyAppClass _myAppClass;
 
   _FirstTime(this._myAppClass);
@@ -71,7 +78,6 @@ class _FirstTime extends StatefulWidget {
 }
 
 class _FirstTimePage extends State<_FirstTime> {
-
   final _MyAppClass _myAppClass;
 
   _FirstTimePage(this._myAppClass);
@@ -88,7 +94,7 @@ class _FirstTimePage extends State<_FirstTime> {
     return Strings.signedInAs + input;
   }
 
-  _handleSignIn() async {
+  _handleSignIn(BuildContext context) async {
     if (googleAccount != null && firebaseUser != null) {
       return;
     }
@@ -110,6 +116,9 @@ class _FirstTimePage extends State<_FirstTime> {
         this._signedIn = true;
       });
     } else {
+      Scaffold.of(context).showSnackBar(new SnackBar(
+        content: new Text("Please Sign In With PISD Account"),
+      ));
       _handleSignOut();
     }
   }
@@ -133,31 +142,20 @@ class _FirstTimePage extends State<_FirstTime> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: CustomThemes.light.copyWith(
-          cardTheme: CustomThemes.light.cardTheme.copyWith(elevation: 12)),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Plano Academy Scheduler"),
-          actions: _signedIn == true && _gradeSelected == true
-              ? <Widget>[
-                  IconButton(
-                    onPressed: () {
-                      _myAppClass.goToHome();
-                    },
-                    icon: Icon(Icons.arrow_forward),
-                  ),
-                ]
-              : [],
-        ),
-        body: ListView(
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: Platform.isIOS ? true : false,
+        title: Text("Plano Academy Scheduler"),
+      ),
+      body: Builder(builder: (context) {
+        return ListView(
           children: <Widget>[
             Card(
-              color: !_signedIn ? null : Colors.green,
+              color: !_signedIn ? null : Colors.green[300],
               child: InkWell(
                 onTap: !_signedIn
                     ? () {
-                        _handleSignIn();
+                        _handleSignIn(context);
                       }
                     : null,
                 child: Padding(
@@ -177,11 +175,32 @@ class _FirstTimePage extends State<_FirstTime> {
                 ),
               ),
             ),
-            _GradeSelector(this)
+            _GradeSelector(this),
+            Card(
+              child: InkWell(
+                onTap: _signedIn == true && _gradeSelected == true
+                    ? () {
+                        _myAppClass.goToHome();
+                      }
+                    : () {
+                        Scaffold.of(context).showSnackBar(new SnackBar(
+                          content: new Text("Please Sign In and Select Grade"),
+                        ));
+                      },
+                child: Padding(
+                  child: Column(children: [
+                    Text(
+                      "Continue",
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ]),
+                  padding: EdgeInsets.all(12),
+                ),
+              ),
+            ),
           ],
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
+        );
+      }),
     );
   }
 }
@@ -211,6 +230,10 @@ class _GradeSelectorPage extends State<_GradeSelector> {
           return GradePopup(null);
         });
     int tempGrade = await Storage.read("grade");
+    if (tempGrade == 0) {
+      await Storage.save("grade", 10);
+      tempGrade = await Storage.read("grade");
+    }
     parent.setGradeSelected();
     setState(() {
       grade = tempGrade;
@@ -221,6 +244,7 @@ class _GradeSelectorPage extends State<_GradeSelector> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: parent._gradeSelected ? Colors.green[300] : null,
       child: InkWell(
         onTap: () {
           openDialog(context);

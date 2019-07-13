@@ -24,7 +24,6 @@ class _GradePopupClass extends State<GradePopup> {
 
 
   Widget dropdown(BuildContext context) {
-    embeddedGrade = embeddedGrade == null ? (settingsMenu == null? 10 : settingsMenu.grade) : embeddedGrade;
     return new DropdownButton<int>(
         items: Constants.grades.map((int value) {
           return new DropdownMenuItem<int>(
@@ -33,6 +32,9 @@ class _GradePopupClass extends State<GradePopup> {
           );
         }).toList(),
         onChanged: (val) {
+          if(val == 0) {
+            val = 10;
+          }
           Storage.save("grade", val);
 
           setState(() {
@@ -46,6 +48,8 @@ class _GradePopupClass extends State<GradePopup> {
 
   @override
   Widget build(BuildContext context) {
+    print(embeddedGrade);
+    embeddedGrade = embeddedGrade == null || embeddedGrade == 0 ? (settingsMenu == null? 10 : settingsMenu.grade) : embeddedGrade;
     return AlertDialog(
       title: new Text(Strings.grade),
       content: dropdown(context),

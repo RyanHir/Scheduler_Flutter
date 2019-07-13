@@ -4,10 +4,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Theme.dart';
 import 'package:scheduler/Tools/MainLayoutProcessing.dart';
-import 'package:scheduler/UI/Settings.dart';
 import 'package:scheduler/UI/Tabs/GradeTab/DrawGradeTab.dart';
 import 'package:scheduler/UI/Tabs/InfoTab/DrawInfoTab.dart';
 import 'package:scheduler/UI/Tabs/PersonalTab/DrawPersonalTab.dart';
+import 'dart:io' show Platform;
 
 class MainLayout extends StatefulWidget {
   @override
@@ -100,6 +100,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: Platform.isIOS ? true : false,
       title: this.title,
       actions: <Widget>[
         IconButton(
@@ -107,12 +108,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {
               parent.mainLayoutProcessing.refresh();
             }),
-        // IconButton(
-        //     icon: new Icon(Constants.settingsIcon),
-        //     onPressed: () {
-        //       Navigator.push(
-        //           context, MaterialPageRoute(builder: (context) => Settings()));
-        //     }),
       ],
     );
   }

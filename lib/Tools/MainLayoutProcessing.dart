@@ -22,7 +22,7 @@ class MainLayoutProcessing {
 
     final token =
         Constants.debug ? null : _mainLayoutClass.googleAccount.idToken;
-    final grade = await Storage.read("grade");
+    final int grade = await Storage.read("grade");
 
     if (grade == null) {
       _mainLayoutClass.setIsLoading(false);
@@ -33,11 +33,12 @@ class MainLayoutProcessing {
     if (Constants.debug == false) {
       //TODO: Change Grade from 8th grade to grade var
       final jsonData = await http.get(
-          Constants.endpoint + "?code=$token&grade=8&request=schedule");
+          Constants.endpoint + "?code=$token&grade=$grade&request=schedule");
       _mainLayoutClass.data = json.decode(jsonData.body);
     } else {
-      final jsonData = await rootBundle.loadString("assets/example.json");
-      _mainLayoutClass.data = json.decode(jsonData);
+      final jsonData = await http.get(
+          Constants.endpoint + "?code=$token&grade=8&request=schedule");
+      _mainLayoutClass.data = json.decode(jsonData.body);
     }
 
     if (_mainLayoutClass.data["failed"] != null) {
