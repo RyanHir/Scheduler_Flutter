@@ -12,11 +12,9 @@ class MainLayoutProcessing {
 
   Future<void> refresh() async {
     _mainLayoutClass.setIsLoading(true);
-    if (Constants.debug == false) {
-      if (!(await _handleSignIn())) {
-        _mainLayoutClass.setIsLoading(false);
-        _mainLayoutClass.setIsSignedIn(false);
-      }
+    if (!(await _handleSignIn())) {
+      _mainLayoutClass.setIsLoading(false);
+      _mainLayoutClass.setIsSignedIn(false);
     }
 
     final token = _mainLayoutClass.googleAccount.idToken;
@@ -33,8 +31,8 @@ class MainLayoutProcessing {
           Constants.endpoint + "?code=$token&grade=$grade&request=schedule");
       _mainLayoutClass.data = json.decode(jsonData.body);
     } else {
-      final jsonData = await http.get(
-          Constants.endpoint + "?code=$token&grade=8&request=schedule");
+      final jsonData = await http
+          .get(Constants.endpoint + "?code=$token&grade=8&request=schedule");
       _mainLayoutClass.data = json.decode(jsonData.body);
     }
 
