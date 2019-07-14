@@ -50,6 +50,7 @@ class _MyAppClass extends State<MyApp> {
                 theme: CustomThemes.light.copyWith(
                     cardTheme:
                         CustomThemes.light.cardTheme.copyWith(elevation: 12)),
+                debugShowCheckedModeBanner: false,
               )
             : MainLayout());
   }
