@@ -19,8 +19,7 @@ class MainLayoutProcessing {
       }
     }
 
-    final token =
-        Constants.debug ? null : _mainLayoutClass.googleAccount.idToken;
+    final token = _mainLayoutClass.googleAccount.idToken;
     final int grade = await Storage.read("grade");
 
     if (grade == null) {

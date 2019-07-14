@@ -5,7 +5,7 @@ class Constants {
   static const String settingsTitle = "Settings";
   static const String endpoint = "https://script.google.com/macros/s/AKfycbx6UM43jEELsS8VNJCQASpH60veCwJ2fESByIOgFqG8itpvK60v/exec";
 
-  static const bool debug = false;
+  static const bool debug = true;
 
   static const IconData refreshIcon = Icons.refresh;
   static const IconData accountIcon = Icons.account_circle;
