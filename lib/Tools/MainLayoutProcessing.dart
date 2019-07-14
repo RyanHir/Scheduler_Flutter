@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart';
 import 'package:scheduler/Constants.dart';
 import 'package:scheduler/Tools/Storage.dart';
 import 'package:http/http.dart' as http;
@@ -31,7 +30,6 @@ class MainLayoutProcessing {
     }
 
     if (Constants.debug == false) {
-      //TODO: Change Grade from 8th grade to grade var
       final jsonData = await http.get(
           Constants.endpoint + "?code=$token&grade=$grade&request=schedule");
       _mainLayoutClass.data = json.decode(jsonData.body);
