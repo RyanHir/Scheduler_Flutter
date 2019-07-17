@@ -39,22 +39,21 @@ class MainLayoutClass extends State<MainLayout> {
 
     setState(() {
       if (!isLoading) {
-      if (data.keys.contains("failed")) {
-        error = true;
-      }
-      else {
-        error = false;
-      }
+        if (data.keys.contains("failed")) {
+          error = true;
+        } else {
+          error = false;
+        }
 
-      if (data.keys.contains("table")) {
-        schedulePresent = true;
+        if (data.keys.contains("table")) {
+          schedulePresent = true;
+        } else {
+          schedulePresent = false;
+        }
       } else {
         schedulePresent = false;
+        error = false;
       }
-    } else {
-      schedulePresent = false;
-      error = false;
-    }
     });
 
     return new MaterialApp(
@@ -74,12 +73,9 @@ class MainLayoutClass extends State<MainLayout> {
           bottomNavigationBar: schedulePresent && !isLoading && !error
               ? TabBar(
                   tabs: [
-                    Tab(
-                        text: "Your Schedule"),
-                    Tab(
-                        text: "Grade Schedule"),
-                    Tab(
-                        text: "Your Info"),
+                    Tab(text: "Your Schedule"),
+                    Tab(text: "Grade Schedule"),
+                    Tab(text: "Your Info"),
                   ],
                 )
               : null,
@@ -123,9 +119,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: new Icon(Constants.settingsIcon),
           onPressed: () {
-            
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Settings()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Settings()));
           },
         )
       ],
@@ -149,12 +144,13 @@ class CustomBody extends StatelessWidget {
         child: CircularProgressIndicator(),
       );
     } else if (parent.error) {
-      return Center(child: Text(
-        "${parent.data["failed"]}\nTry Again Later",
-        textAlign: TextAlign.center,
-      ),);
-    } 
-    else if (parent.schedulePresent) {
+      return Center(
+        child: Text(
+          "${parent.data["failed"]}\nTry Again Later",
+          textAlign: TextAlign.center,
+        ),
+      );
+    } else if (parent.schedulePresent) {
       return TabBarView(
         controller: tabController,
         children: [
