@@ -32,12 +32,13 @@ class MainLayoutClass extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
-    if (data == null) {
+    if (data == null && isLoading == false) {
       mainLayoutProcessing = new MainLayoutProcessing(this);
       mainLayoutProcessing.refresh();
     }
 
-    if (!isLoading) {
+    setState(() {
+      if (!isLoading) {
       if (data.keys.contains("failed")) {
         error = true;
       }
@@ -54,6 +55,7 @@ class MainLayoutClass extends State<MainLayout> {
       schedulePresent = false;
       error = false;
     }
+    });
 
     return new MaterialApp(
       theme: CustomThemes.light,
